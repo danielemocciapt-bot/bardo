@@ -1,8 +1,6 @@
 <script>
-  // Verrà sostituito in Task 6 con GameScreen sulla scena demo
+  import GameScreen from './components/GameScreen.svelte';
+  import { demoScene } from './lib/data/scenes.js';
 </script>
 
-<main style="padding:16px">
-  <h1>Bardo</h1>
-  <p>Scaffold ok.</p>
-</main>
+<GameScreen scene={demoScene} />
