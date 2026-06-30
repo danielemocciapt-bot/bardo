@@ -93,6 +93,7 @@ export class AudioEngine {
     if (oldLayer) {
       oldLayer.howl.fade(this._master * oldLayer.volume, 0, CROSSFADE_MS);
       oldLayer.howl.once('fade', () => oldLayer.howl.stop());
+      this._layers.delete(oldId);
     }
 
     this._musicLayerId = newRef.id;

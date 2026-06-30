@@ -84,4 +84,17 @@ describe('AudioEngine play / intensità / oneshot', () => {
     expect(created.opts.loop).toBe(false);
     expect(created.play).toHaveBeenCalled();
   });
+
+  it('setIntensity rimuove il vecchio layer musicale (no doppia traccia su replay)', () => {
+    engine.play();
+    const oldMusic = engine._layerHowl('tavern-explore');
+    engine.setIntensity('combat');
+    // il vecchio layer non è più nella mappa
+    expect(engine._layerHowl('tavern-explore')).toBeNull();
+    // un play() successivo NON deve riavviare la vecchia traccia
+    oldMusic.play.mockClear();
+    engine.stop();
+    engine.play();
+    expect(oldMusic.play).not.toHaveBeenCalled();
+  });
 });
