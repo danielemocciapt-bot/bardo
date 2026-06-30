@@ -1001,3 +1001,17 @@ Pusha il repo su GitHub e collegalo a Cloudflare Pages con build command `npm ru
 - **Fase 3:** download pacchetti + Cache API + audio offline + gestione spazio.
 - **Fase 4:** scene builder + salvataggio UserScene/Preset in IndexedDB.
 - **Fase 5:** curatela audio CC0 definitiva, registro licenze/credits, grafica/icone finali, QA iOS.
+
+## Backlog tecnico (emerso nelle review della Fase 1)
+
+Da affrontare nel lavoro audio della Fase 2 (stessa radice: lifecycle dei Howl):
+
+- **"Pausa" in realtà ferma** (`engine.stop()` → `howl.stop()` resetta il playhead): premendo Pausa→Play i loop ripartono da capo. Implementare `pause()`/`resume()` reali (Howler li supporta) per far combaciare l'etichetta.
+- **`html5:true` su tutti i layer** esaurisce il pool HTML5 di Howler ("HTML5 Audio pool exhausted"). `html5` serve solo alla *musica* (continuità in background); ambient/oneshot meglio Web Audio, oppure alzare `Howler.html5PoolSize`.
+- **Race su toggle rapido intensità**: mitigato dal fix che rimuove il vecchio layer da `_layers` (ricreazione fresca), da riverificare quando si aggiunge MediaSession.
+- **`playOneShot` sovrascrive `_oneshots[id]`** senza `unload()` del Howl precedente: piccolo leak con SFX ripetuti.
+
+Polish minori:
+- **manifest `lang:"en"`** mentre `index.html` è `lang="it"` → aggiungere `lang:'it'` al manifest (Fase 5).
+- Pulire boilerplate `npm init` in `package.json` (main/directories/keywords/license ISC).
+- Flash 1-frame degli slider ambient prima di `onMount` (valore default range finché `mixer.load` non popola `layers`).
