@@ -68,4 +68,44 @@ export class AudioEngine {
   stop() {
     for (const { howl } of this._layers.values()) howl.stop();
   }
+
+  get intensity() { return this._intensity; }
+
+  play() {
+    for (const { howl } of this._layers.values()) howl.play();
+  }
+
+  /** @param {'explore'|'combat'|'victory'} level */
+  setIntensity(level) {
+    if (!this._scene || level === this._intensity) return;
+    const oldId = this._musicLayerId;
+    const oldLayer = this._layers.get(oldId);
+    const newRef = this._scene.music[level][0];
+
+    // crea (o riusa) il layer musicale nuovo a volume 0
+    if (!this._layers.has(newRef.id)) {
+      this._layers.set(newRef.id, { howl: this._makeHowl(newRef, { volume: 0 }), volume: 1 });
+    }
+    const newLayer = this._layers.get(newRef.id);
+
+    newLayer.howl.play();
+    newLayer.howl.fade(0, this._master * newLayer.volume, CROSSFADE_MS);
+    if (oldLayer) {
+      oldLayer.howl.fade(this._master * oldLayer.volume, 0, CROSSFADE_MS);
+      oldLayer.howl.once('fade', () => oldLayer.howl.stop());
+    }
+
+    this._musicLayerId = newRef.id;
+    this._intensity = level;
+  }
+
+  /** @param {string} sfxId */
+  playOneShot(sfxId) {
+    if (!this._scene) return;
+    const ref = this._scene.oneshots.find((s) => s.id === sfxId);
+    if (!ref) return;
+    const howl = this._factory({ src: ref.src, loop: false, html5: true, volume: this._master });
+    this._oneshots.set(sfxId, howl);
+    howl.play();
+  }
 }

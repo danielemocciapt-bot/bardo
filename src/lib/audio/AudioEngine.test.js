@@ -49,3 +49,39 @@ describe('AudioEngine volumi', () => {
     expect(engine._layerHowl('fire').volume).toHaveBeenLastCalledWith(0.3);
   });
 });
+
+describe('AudioEngine play / intensità / oneshot', () => {
+  let fake, engine;
+  beforeEach(() => {
+    fake = makeFakeHowl();
+    engine = new AudioEngine({ howlFactory: fake.factory });
+    engine.loadScene(demoScene);
+  });
+
+  it('play() avvia tutti i layer', () => {
+    engine.play();
+    expect(engine._layerHowl('crowd').play).toHaveBeenCalled();
+    expect(engine._layerHowl('tavern-explore').play).toHaveBeenCalled();
+  });
+
+  it('setIntensity crea il nuovo layer musicale e fa il crossfade', () => {
+    engine.play();
+    const oldMusic = engine._layerHowl('tavern-explore');
+    engine.setIntensity('combat');
+    // nuovo layer musicale combat presente e in play
+    const newMusic = engine._layerHowl('tavern-combat');
+    expect(newMusic).toBeTruthy();
+    expect(newMusic.play).toHaveBeenCalled();
+    // fade: vecchio verso 0, nuovo verso master
+    expect(oldMusic.fade).toHaveBeenCalled();
+    expect(newMusic.fade).toHaveBeenCalled();
+    expect(engine.intensity).toBe('combat');
+  });
+
+  it('playOneShot crea e riproduce un Howl non-loop una sola volta', () => {
+    engine.playOneShot('door');
+    const created = fake.created.at(-1);
+    expect(created.opts.loop).toBe(false);
+    expect(created.play).toHaveBeenCalled();
+  });
+});
