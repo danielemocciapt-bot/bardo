@@ -1,0 +1,17 @@
+:root {
+  --bg: #f6ecd6;
+  --panel: #fbf3e1;
+  --ink: #5a4326;
+  --ink-soft: #9a7f52;
+  --amber: #ecb14c;
+  --amber-deep: #b97a25;
+  --shadow: 0 4px 12px #00000022;
+  --radius: 16px;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
