@@ -1,0 +1,74 @@
+[
+  {
+    "file": "audio/tavern/music.webm",
+    "source": "https://pixabay.com/music/folk-medieval-citytavern-ambient-235876/",
+    "license": "Pixabay",
+    "author": "DeusLower"
+  },
+  {
+    "file": "audio/tavern/crowd.webm",
+    "source": "https://pixabay.com/sound-effects/people-crowd-murmuring-60721/",
+    "license": "Pixabay",
+    "author": "freesound_community"
+  },
+  {
+    "file": "audio/tavern/door.webm",
+    "source": "https://pixabay.com/sound-effects/household-door-open-close-45475/",
+    "license": "Pixabay",
+    "author": "freesound_community"
+  },
+  {
+    "file": "audio/forest/music.webm",
+    "source": "https://pixabay.com/music/beautiful-forest-lullaby-110624/",
+    "license": "Pixabay",
+    "author": ""
+  },
+  {
+    "file": "audio/forest/wind.webm",
+    "source": "https://pixabay.com/sound-effects/nature-wind-through-trees-86748/",
+    "license": "Pixabay",
+    "author": "freesound_community"
+  },
+  {
+    "file": "audio/forest/twig.webm",
+    "source": "https://pixabay.com/sound-effects/nature-sound-of-branches-snapping-hd-262341/",
+    "license": "Pixabay",
+    "author": "mightuser"
+  },
+  {
+    "file": "audio/city/music.webm",
+    "source": "https://pixabay.com/music/folk-the-market-square-daytime-1-min-14-sec-loop-rpg-game-music-519321/",
+    "license": "Pixabay",
+    "author": "kaazoom"
+  },
+  {
+    "file": "audio/city/market.webm",
+    "source": "https://pixabay.com/sound-effects/city-turkish-open-marketplace-ambience-25036/",
+    "license": "Pixabay",
+    "author": "freesound_community"
+  },
+  {
+    "file": "audio/city/bell.webm",
+    "source": "https://pixabay.com/sound-effects/city-church-bell-32729/",
+    "license": "Pixabay",
+    "author": "freesound_community"
+  },
+  {
+    "file": "audio/dungeon/music.webm",
+    "source": "https://pixabay.com/music/ambient-dark-fantasy-ambient-dungeon-synth-248213/",
+    "license": "Pixabay",
+    "author": "DeusLower"
+  },
+  {
+    "file": "audio/dungeon/drip.webm",
+    "source": "https://pixabay.com/sound-effects/dripping-water-in-cave-114694/",
+    "license": "Pixabay",
+    "author": "SolarMusic"
+  },
+  {
+    "file": "audio/dungeon/chain.webm",
+    "source": "https://pixabay.com/sound-effects/film-special-effects-chains-rattling-74557/",
+    "license": "Pixabay",
+    "author": "freesound_community"
+  }
+]
