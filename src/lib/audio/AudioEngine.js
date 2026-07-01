@@ -23,8 +23,8 @@ export class AudioEngine {
   }
 
   /** @param {AudioRef} ref */
-  _makeHowl(ref, { volume }) {
-    return this._factory({ src: ref.src, loop: !!ref.loop, html5: true, volume });
+  _makeHowl(ref, { volume, html5 = true }) {
+    return this._factory({ src: ref.src, loop: !!ref.loop, html5, volume });
   }
 
   /** Carica la scena: crea i Howl ambient + il Howl musicale dell'intensità iniziale. */
@@ -36,7 +36,7 @@ export class AudioEngine {
     this._intensity = 'explore';
 
     for (const ref of scene.ambient) {
-      this._layers.set(ref.id, { howl: this._makeHowl(ref, { volume: 0 }), volume: 0 });
+      this._layers.set(ref.id, { howl: this._makeHowl(ref, { volume: 0, html5: false }), volume: 0 });
     }
     const musicRef = scene.music.explore[0];
     this._musicLayerId = musicRef.id;
@@ -67,6 +67,10 @@ export class AudioEngine {
 
   stop() {
     for (const { howl } of this._layers.values()) howl.stop();
+  }
+
+  pause() {
+    for (const { howl } of this._layers.values()) howl.pause();
   }
 
   get intensity() { return this._intensity; }
@@ -105,7 +109,9 @@ export class AudioEngine {
     if (!this._scene) return;
     const ref = this._scene.oneshots.find((s) => s.id === sfxId);
     if (!ref) return;
-    const howl = this._factory({ src: ref.src, loop: false, html5: true, volume: this._master });
+    const prev = this._oneshots.get(sfxId);
+    if (prev) prev.unload();
+    const howl = this._factory({ src: ref.src, loop: false, html5: false, volume: this._master });
     this._oneshots.set(sfxId, howl);
     howl.play();
   }

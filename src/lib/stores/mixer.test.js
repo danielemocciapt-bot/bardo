@@ -8,6 +8,7 @@ function fakeEngine() {
     loadScene: vi.fn(),
     play: vi.fn(),
     stop: vi.fn(),
+    pause: vi.fn(),
     setLayerVolume: vi.fn(),
     setMasterVolume: vi.fn(),
     setIntensity: vi.fn(),
@@ -50,7 +51,7 @@ describe('mixer store', () => {
     expect(engine.play).toHaveBeenCalled();
     expect(get(mixer).playing).toBe(true);
     mixer.togglePlay();
-    expect(engine.stop).toHaveBeenCalled();
+    expect(engine.pause).toHaveBeenCalled();
     expect(get(mixer).playing).toBe(false);
   });
 });

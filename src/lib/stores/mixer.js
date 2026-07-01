@@ -24,7 +24,7 @@ export function createMixer(engine) {
   function togglePlay() {
     update((s) => {
       const playing = !s.playing;
-      if (playing) engine.play(); else engine.stop();
+      if (playing) engine.play(); else engine.pause();
       return { ...s, playing };
     });
   }

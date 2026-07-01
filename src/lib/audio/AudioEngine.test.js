@@ -11,6 +11,7 @@ function makeFakeHowl() {
       _vol: opts.volume ?? 1,
       play: vi.fn(),
       stop: vi.fn(),
+      pause: vi.fn(),
       unload: vi.fn(),
       fade: vi.fn(),
       once: vi.fn(),
@@ -96,5 +97,26 @@ describe('AudioEngine play / intensità / oneshot', () => {
     engine.stop();
     engine.play();
     expect(oldMusic.play).not.toHaveBeenCalled();
+  });
+
+  it('pause() mette in pausa tutti i layer senza stop', () => {
+    engine.play();
+    engine.pause();
+    for (const id of ['tavern-explore', 'crowd', 'fire']) {
+      expect(engine._layerHowl(id).pause).toHaveBeenCalled();
+    }
+  });
+
+  it('musica creata html5:true, ambient html5:false', () => {
+    expect(engine._layerHowl('tavern-explore').opts.html5).toBe(true);
+    expect(engine._layerHowl('crowd').opts.html5).toBe(false);
+    expect(engine._layerHowl('fire').opts.html5).toBe(false);
+  });
+
+  it('playOneShot fa unload del precedente stesso id', () => {
+    engine.playOneShot('door');
+    const first = fake.created.at(-1);
+    engine.playOneShot('door');
+    expect(first.unload).toHaveBeenCalled();
   });
 });
