@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import { AudioEngine } from '../lib/audio/AudioEngine.js';
   import { createMixer } from '../lib/stores/mixer.js';
+  import { createMediaSession } from '../lib/audio/media-session.js';
   import NowPlaying from './NowPlaying.svelte';
   import IntensityTabs from './IntensityTabs.svelte';
   import Mixer from './Mixer.svelte';
@@ -11,7 +12,7 @@
   export let onBack = () => {};
 
   const engine = new AudioEngine();
-  const mixer = createMixer(engine);
+  const mixer = createMixer(engine, { mediaSession: createMediaSession() });
 
   onMount(() => mixer.load(scene));
 </script>
