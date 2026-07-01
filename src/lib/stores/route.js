@@ -20,11 +20,18 @@ export function createRoute(deps = {}) {
     history?.back();
   }
 
-  // il tasto Indietro (o back()) emette popstate: se non c'è sceneId, siamo in Home
+  function builder() {
+    set({ view: 'builder' });
+    history?.pushState({ builder: true }, '', '#/builder');
+  }
+
+  // il tasto Indietro (o back()) emette popstate: ripristina la vista dallo stato
   target?.addEventListener('popstate', (ev) => {
-    const sceneId = ev?.state?.sceneId;
-    set(sceneId ? { view: 'game', sceneId } : { view: 'home' });
+    const st = ev?.state;
+    if (st?.sceneId) set({ view: 'game', sceneId: st.sceneId });
+    else if (st?.builder) set({ view: 'builder' });
+    else set({ view: 'home' });
   });
 
-  return { subscribe, open, home };
+  return { subscribe, open, home, builder };
 }

@@ -42,4 +42,16 @@ describe('route store', () => {
     win._emit('popstate', { state: null });
     expect(get(route).view).toBe('home');
   });
+
+  it('builder passa alla vista builder + pushState', () => {
+    route.builder();
+    expect(get(route)).toEqual({ view: 'builder' });
+    expect(history.pushState).toHaveBeenCalledWith({ builder: true }, '', expect.anything());
+  });
+
+  it('popstate con state.builder ripristina la vista builder', () => {
+    route.builder();
+    win._emit('popstate', { state: { builder: true } });
+    expect(get(route).view).toBe('builder');
+  });
 });
