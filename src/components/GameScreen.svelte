@@ -26,7 +26,9 @@
 </div>
 
 <NowPlaying name={scene.name} />
-<IntensityTabs value={$mixer.intensity} onChange={(l) => mixer.setIntensity(l)} />
+{#if !scene.custom}
+  <IntensityTabs value={$mixer.intensity} onChange={(l) => mixer.setIntensity(l)} />
+{/if}
 
 <div style="text-align:center;margin:4px 0 12px;">
   <button on:click={() => mixer.togglePlay()}
