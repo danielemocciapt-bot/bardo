@@ -44,10 +44,10 @@ describe('AudioEngine volumi', () => {
 
   it('setMasterVolume riscala tutti i layer attivi', () => {
     engine.setLayerVolume('crowd', 1);
-    engine.setLayerVolume('fire', 0.5);
+    engine.setLayerVolume('tavern-explore', 0.5);
     engine.setMasterVolume(0.6);
     expect(engine._layerHowl('crowd').volume).toHaveBeenLastCalledWith(0.6);
-    expect(engine._layerHowl('fire').volume).toHaveBeenLastCalledWith(0.3);
+    expect(engine._layerHowl('tavern-explore').volume).toHaveBeenLastCalledWith(0.3);
   });
 });
 
@@ -102,7 +102,7 @@ describe('AudioEngine play / intensità / oneshot', () => {
   it('pause() mette in pausa tutti i layer senza stop', () => {
     engine.play();
     engine.pause();
-    for (const id of ['tavern-explore', 'crowd', 'fire']) {
+    for (const id of ['tavern-explore', 'crowd']) {
       expect(engine._layerHowl(id).pause).toHaveBeenCalled();
     }
   });
@@ -110,7 +110,6 @@ describe('AudioEngine play / intensità / oneshot', () => {
   it('musica creata html5:true, ambient html5:false', () => {
     expect(engine._layerHowl('tavern-explore').opts.html5).toBe(true);
     expect(engine._layerHowl('crowd').opts.html5).toBe(false);
-    expect(engine._layerHowl('fire').opts.html5).toBe(false);
   });
 
   it('playOneShot fa unload del precedente stesso id', () => {
