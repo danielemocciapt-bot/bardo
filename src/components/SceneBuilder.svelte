@@ -47,8 +47,8 @@
 
   <h2 style="font-family:Georgia,serif;color:#7a5a2e;">Crea scena</h2>
 
-  <label style="display:block;font-size:12px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:1px;">Nome</label>
-  <input bind:value={name} placeholder="La mia scena"
+  <label for="sb-name" style="display:block;font-size:12px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:1px;">Nome</label>
+  <input id="sb-name" bind:value={name} placeholder="La mia scena"
     style="width:100%;padding:10px;border-radius:10px;border:1px solid #d3b985;background:var(--panel);margin:4px 0 14px;" />
 
   <div style="font-size:12px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Colore</div>
