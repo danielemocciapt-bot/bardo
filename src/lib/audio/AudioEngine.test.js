@@ -118,4 +118,27 @@ describe('AudioEngine play / intensità / oneshot', () => {
     engine.playOneShot('door');
     expect(first.unload).toHaveBeenCalled();
   });
+
+  it('setIntensity mentre NON in riproduzione non avvia la musica', () => {
+    // non chiamiamo play(): l'engine non sta suonando
+    engine.setIntensity('combat');
+    const newMusic = engine._layerHowl('tavern-combat');
+    expect(newMusic).toBeTruthy();
+    expect(newMusic.play).not.toHaveBeenCalled();
+    expect(engine.intensity).toBe('combat');
+    // il vecchio layer è comunque rimosso
+    expect(engine._layerHowl('tavern-explore')).toBeNull();
+    // un play() successivo avvia il nuovo layer musicale
+    engine.play();
+    expect(newMusic.play).toHaveBeenCalled();
+  });
+
+  it('pause() ferma lo stato playing (setIntensity dopo la pausa non riparte)', () => {
+    engine.play();
+    engine.pause();
+    const explore = engine._layerHowl('tavern-explore');
+    engine.setIntensity('combat');
+    const combat = engine._layerHowl('tavern-combat');
+    expect(combat.play).not.toHaveBeenCalled();
+  });
 });

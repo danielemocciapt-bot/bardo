@@ -20,6 +20,7 @@ export class AudioEngine {
     this._musicLayerId = null;
     /** @type {'explore'|'combat'|'victory'} */
     this._intensity = 'explore';
+    this._playing = false;
   }
 
   /** @param {AudioRef} ref */
@@ -66,16 +67,19 @@ export class AudioEngine {
   }
 
   stop() {
+    this._playing = false;
     for (const { howl } of this._layers.values()) howl.stop();
   }
 
   pause() {
+    this._playing = false;
     for (const { howl } of this._layers.values()) howl.pause();
   }
 
   get intensity() { return this._intensity; }
 
   play() {
+    this._playing = true;
     for (const { howl } of this._layers.values()) howl.play();
   }
 
@@ -92,13 +96,20 @@ export class AudioEngine {
     }
     const newLayer = this._layers.get(newRef.id);
 
-    newLayer.howl.play();
-    newLayer.howl.fade(0, this._master * newLayer.volume, CROSSFADE_MS);
-    if (oldLayer) {
-      oldLayer.howl.fade(this._master * oldLayer.volume, 0, CROSSFADE_MS);
-      oldLayer.howl.once('fade', () => oldLayer.howl.stop());
-      this._layers.delete(oldId);
+    if (this._playing) {
+      // crossfade dal vecchio al nuovo mentre si suona
+      newLayer.howl.play();
+      newLayer.howl.fade(0, this._master * newLayer.volume, CROSSFADE_MS);
+      if (oldLayer) {
+        oldLayer.howl.fade(this._master * oldLayer.volume, 0, CROSSFADE_MS);
+        oldLayer.howl.once('fade', () => oldLayer.howl.stop());
+      }
+    } else {
+      // in pausa/mai avviato: solo swap, senza far partire l'audio
+      newLayer.howl.volume(this._master * newLayer.volume);
+      if (oldLayer) oldLayer.howl.stop();
     }
+    if (oldLayer) this._layers.delete(oldId);
 
     this._musicLayerId = newRef.id;
     this._intensity = level;
