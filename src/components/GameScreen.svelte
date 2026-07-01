@@ -3,6 +3,7 @@
   import { AudioEngine } from '../lib/audio/AudioEngine.js';
   import { createMixer } from '../lib/stores/mixer.js';
   import { createMediaSession } from '../lib/audio/media-session.js';
+  import { createWakeLock } from '../lib/audio/wake-lock.js';
   import NowPlaying from './NowPlaying.svelte';
   import IntensityTabs from './IntensityTabs.svelte';
   import Mixer from './Mixer.svelte';
@@ -12,7 +13,8 @@
   export let onBack = () => {};
 
   const engine = new AudioEngine();
-  const mixer = createMixer(engine, { mediaSession: createMediaSession() });
+  const wake = createWakeLock();
+  const mixer = createMixer(engine, { mediaSession: createMediaSession(), wakeLock: wake });
 
   onMount(() => mixer.load(scene));
 </script>
@@ -33,6 +35,16 @@
     {$mixer.playing ? '⏸ Pausa' : '▶ Play'}
   </button>
 </div>
+
+{#if wake.supported}
+  <div style="text-align:center;margin:-4px 0 10px;">
+    <label style="font-size:12px;color:var(--ink-soft);cursor:pointer;">
+      <input type="checkbox" checked={$mixer.keepAwake}
+             on:change={(e) => mixer.setKeepAwake(e.target.checked)} />
+      Tieni schermo acceso
+    </label>
+  </div>
+{/if}
 
 <Mixer {scene} state={$mixer} onMaster={(v) => mixer.setMaster(v)} onLayer={(id, v) => mixer.setLayerVolume(id, v)} />
 <OneShotBar {scene} onPlay={(id) => mixer.oneShot(id)} />

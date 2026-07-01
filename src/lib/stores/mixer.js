@@ -7,13 +7,15 @@ import { writable } from 'svelte/store';
  */
 export function createMixer(engine, deps = {}) {
   const mediaSession = deps.mediaSession ?? null;
+  const wakeLock = deps.wakeLock ?? null;
   const { subscribe, set, update } = writable({
     scene: null,
     playing: false,
     master: 1,
     intensity: 'explore',
     /** @type {Record<string, number>} layerId -> volume */
-    layers: {}
+    layers: {},
+    keepAwake: false
   });
 
   function load(scene) {
@@ -21,7 +23,7 @@ export function createMixer(engine, deps = {}) {
     _playing = false;
     const layers = {};
     for (const l of scene.ambient) layers[l.id] = 0;
-    set({ scene, playing: false, master: 1, intensity: 'explore', layers });
+    set({ scene, playing: false, master: 1, intensity: 'explore', layers, keepAwake: false });
     if (mediaSession) {
       mediaSession.setScene(scene);
       mediaSession.setHandlers({
@@ -41,6 +43,7 @@ export function createMixer(engine, deps = {}) {
       if (playing) engine.play(); else engine.pause();
       _playing = playing;
       mediaSession?.setPlaybackState(playing ? 'playing' : 'paused');
+      if (wakeLock) { (playing && s.keepAwake) ? wakeLock.enable() : wakeLock.disable(); }
       return { ...s, playing };
     });
   }
@@ -48,8 +51,16 @@ export function createMixer(engine, deps = {}) {
   function stop() {
     engine.stop();
     _playing = false;
+    wakeLock?.disable();
     mediaSession?.setPlaybackState('none');
     update((s) => ({ ...s, playing: false }));
+  }
+
+  function setKeepAwake(on) {
+    update((s) => {
+      if (wakeLock) { (on && s.playing) ? wakeLock.enable() : wakeLock.disable(); }
+      return { ...s, keepAwake: on };
+    });
   }
 
   function setMaster(v) {
@@ -71,5 +82,5 @@ export function createMixer(engine, deps = {}) {
     engine.playOneShot(id);
   }
 
-  return { subscribe, load, togglePlay, setMaster, setLayerVolume, setIntensity, oneShot, stop };
+  return { subscribe, load, togglePlay, setMaster, setLayerVolume, setIntensity, oneShot, stop, setKeepAwake };
 }
