@@ -8,12 +8,19 @@
   import OneShotBar from './OneShotBar.svelte';
 
   export let scene;
+  export let onBack = () => {};
 
   const engine = new AudioEngine();
   const mixer = createMixer(engine);
 
   onMount(() => mixer.load(scene));
 </script>
+
+<div style="padding:10px 16px 0;">
+  <button on:click={onBack}
+    style="border:none;cursor:pointer;background:#ffffff88;color:var(--ink);
+           padding:8px 14px;border-radius:20px;font-size:13px;font-weight:600;">← Home</button>
+</div>
 
 <NowPlaying name={scene.name} />
 <IntensityTabs value={$mixer.intensity} onChange={(l) => mixer.setIntensity(l)} />
