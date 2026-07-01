@@ -7,6 +7,10 @@ export default defineConfig({
     svelte(),
     VitePWA({
       registerType: 'autoUpdate',
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,webmanifest,webm,m4a}'],
+        maximumFileSizeToCacheInBytes: 6 * 1024 * 1024
+      },
       manifest: {
         name: 'Bardo',
         short_name: 'Bardo',
