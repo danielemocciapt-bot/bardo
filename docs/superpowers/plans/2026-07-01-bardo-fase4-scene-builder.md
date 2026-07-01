@@ -579,3 +579,10 @@ git commit -m "feat: sezione 'Le mie scene' con apertura ed eliminazione"
 - Nessuna validazione oltre "nome non vuoto"; nomi duplicati permessi (id univoco).
 - Le user scenes referenziano audio di libreria (già in precache) → offline senza download.
 - `confirm()` nativo per l'eliminazione: semplice; sostituibile con un dialog custom in una fase di polish.
+
+### Emerso nella final review (non bloccante)
+
+- **Invariante id globalmente unici:** builder e engine assumono che gli id dei layer di libreria siano unici. Vero oggi (crowd/wind/market/drip; door/twig/bell/chain; <scene>-explore). Se in Fase 5 la libreria cresce, mantenere l'unicità o aggiungere un guard. Le `{#each}` dei chip nel builder sono unkeyed.
+- **popstate non rimosso** in `createRoute` (istanza singola in App → innocuo; conta solo in scenari multi-istanza).
+- **a11y label "Nome"** ora associata all'input (`for`/`id`) → build senza warning.
+- Deep-link a `#/scene/u-...` a freddo mostra Home (il route parte da home).
