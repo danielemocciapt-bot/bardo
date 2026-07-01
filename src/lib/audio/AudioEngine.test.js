@@ -141,4 +141,22 @@ describe('AudioEngine play / intensità / oneshot', () => {
     const combat = engine._layerHowl('tavern-combat');
     expect(combat.play).not.toHaveBeenCalled();
   });
+
+  it('setIntensity verso una musica con lo stesso id è un no-op sicuro (scene custom)', () => {
+    // scena custom: stessa traccia (stesso id) per tutte le intensità
+    const track = { id: 'u-music', name: 'Mix', src: ['/audio/x.webm'], loop: true };
+    const custom = {
+      id: 'u-1', name: 'Custom', cover: 'c', custom: true,
+      music: { explore: [track], combat: [track], victory: [track] },
+      ambient: [], oneshots: []
+    };
+    engine.loadScene(custom);
+    engine.play();
+    const music = engine._layerHowl('u-music');
+    engine.setIntensity('combat');
+    // il layer musicale è ancora tracciato (non orfano) e non è stato fermato/rifadato
+    expect(engine._layerHowl('u-music')).toBe(music);
+    expect(music.stop).not.toHaveBeenCalled();
+    expect(engine.intensity).toBe('combat');
+  });
 });

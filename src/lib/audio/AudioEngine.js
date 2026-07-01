@@ -90,6 +90,12 @@ export class AudioEngine {
     const oldLayer = this._layers.get(oldId);
     const newRef = this._scene.music[level][0];
 
+    // scene custom: stessa traccia per tutte le intensità -> nessun crossfade, solo aggiorna lo stato
+    if (newRef.id === oldId) {
+      this._intensity = level;
+      return;
+    }
+
     // crea (o riusa) il layer musicale nuovo a volume 0
     if (!this._layers.has(newRef.id)) {
       this._layers.set(newRef.id, { howl: this._makeHowl(newRef, { volume: 0 }), volume: 1 });
