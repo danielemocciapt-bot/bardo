@@ -1,9 +1,21 @@
 [
   {
-    "file": "audio/tavern/music.webm",
+    "file": "audio/tavern/explore.webm",
     "source": "https://pixabay.com/music/folk-medieval-citytavern-ambient-235876/",
     "license": "Pixabay",
     "author": "DeusLower"
+  },
+  {
+    "file": "audio/tavern/combat.webm",
+    "source": "https://pixabay.com/music/celtic-medieval-dance-party-486731/",
+    "license": "Pixabay",
+    "author": "vifotofreesounds"
+  },
+  {
+    "file": "audio/tavern/victory.webm",
+    "source": "https://pixabay.com/music/folk-folk-celebration-score-455625/",
+    "license": "Pixabay",
+    "author": "desifreemusic"
   },
   {
     "file": "audio/tavern/crowd.webm",
@@ -18,10 +30,22 @@
     "author": "freesound_community"
   },
   {
-    "file": "audio/forest/music.webm",
+    "file": "audio/forest/explore.webm",
     "source": "https://pixabay.com/music/beautiful-forest-lullaby-110624/",
     "license": "Pixabay",
     "author": ""
+  },
+  {
+    "file": "audio/forest/combat.webm",
+    "source": "https://pixabay.com/music/main-title-heroic-battle-251914/",
+    "license": "Pixabay",
+    "author": "leberch"
+  },
+  {
+    "file": "audio/forest/victory.webm",
+    "source": "https://pixabay.com/music/orchestral-nature-558251/",
+    "license": "Pixabay",
+    "author": "solarflex"
   },
   {
     "file": "audio/forest/wind.webm",
@@ -36,10 +60,22 @@
     "author": "mightuser"
   },
   {
-    "file": "audio/city/music.webm",
+    "file": "audio/city/explore.webm",
     "source": "https://pixabay.com/music/folk-the-market-square-daytime-1-min-14-sec-loop-rpg-game-music-519321/",
     "license": "Pixabay",
     "author": "kaazoom"
+  },
+  {
+    "file": "audio/city/combat.webm",
+    "source": "https://pixabay.com/music/upbeat-battle-drums-action-223566/",
+    "license": "Pixabay",
+    "author": "land_of_books_youtube"
+  },
+  {
+    "file": "audio/city/victory.webm",
+    "source": "https://pixabay.com/music/main-title-fanfare-triumph-triumphant-music-357757/",
+    "license": "Pixabay",
+    "author": "mfcc"
   },
   {
     "file": "audio/city/market.webm",
@@ -54,10 +90,22 @@
     "author": "freesound_community"
   },
   {
-    "file": "audio/dungeon/music.webm",
+    "file": "audio/dungeon/explore.webm",
     "source": "https://pixabay.com/music/ambient-dark-fantasy-ambient-dungeon-synth-248213/",
     "license": "Pixabay",
     "author": "DeusLower"
+  },
+  {
+    "file": "audio/dungeon/combat.webm",
+    "source": "https://pixabay.com/music/horror-scene-ritual-horror-trailer-523460/",
+    "license": "Pixabay",
+    "author": "fluxsound"
+  },
+  {
+    "file": "audio/dungeon/victory.webm",
+    "source": "https://pixabay.com/music/solo-piano-doomed-calm-dark-ambient-music-318236/",
+    "license": "Pixabay",
+    "author": "clavier-music"
   },
   {
     "file": "audio/dungeon/drip.webm",
