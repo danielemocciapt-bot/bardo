@@ -1,8 +1,6 @@
 /** @typedef {import('../types.js').Scene} Scene */
 
 const fmt = (base, name) => [`/audio/${base}/${name}.webm`, `/audio/${base}/${name}.m4a`];
-// Pacchetto ridotto Fase 2: una sola traccia musicale per scena, condivisa tra le tre intensità.
-const music = (base) => fmt(base, 'music');
 
 /** @type {Scene[]} */
 export const scenes = [
@@ -11,9 +9,9 @@ export const scenes = [
     name: 'Taverna del Drago',
     cover: 'linear-gradient(160deg,#f3c98a,#b98a4a)',
     music: {
-      explore: [{ id: 'tavern-explore', name: 'Calma', src: music('tavern'), loop: true }],
-      combat:  [{ id: 'tavern-combat',  name: 'Rissa', src: music('tavern'), loop: true }],
-      victory: [{ id: 'tavern-victory', name: 'Brindisi', src: music('tavern'), loop: true }]
+      explore: [{ id: 'tavern-explore', name: 'Calma', src: fmt('tavern', 'explore'), loop: true }],
+      combat:  [{ id: 'tavern-combat',  name: 'Rissa', src: fmt('tavern', 'combat'),  loop: true }],
+      victory: [{ id: 'tavern-victory', name: 'Brindisi', src: fmt('tavern', 'victory'), loop: true }]
     },
     ambient: [
       { id: 'crowd', name: 'Brusio', src: fmt('tavern', 'crowd'), loop: true }
@@ -27,9 +25,9 @@ export const scenes = [
     name: 'Foresta Antica',
     cover: 'linear-gradient(160deg,#a9d18a,#6fa15a)',
     music: {
-      explore: [{ id: 'forest-explore', name: 'Sentiero', src: music('forest'), loop: true }],
-      combat:  [{ id: 'forest-combat',  name: 'Agguato',  src: music('forest'), loop: true }],
-      victory: [{ id: 'forest-victory', name: 'Radura',   src: music('forest'), loop: true }]
+      explore: [{ id: 'forest-explore', name: 'Sentiero', src: fmt('forest', 'explore'), loop: true }],
+      combat:  [{ id: 'forest-combat',  name: 'Agguato',  src: fmt('forest', 'combat'),  loop: true }],
+      victory: [{ id: 'forest-victory', name: 'Radura',   src: fmt('forest', 'victory'), loop: true }]
     },
     ambient: [
       { id: 'wind', name: 'Vento', src: fmt('forest', 'wind'), loop: true }
@@ -43,9 +41,9 @@ export const scenes = [
     name: 'Città Reale',
     cover: 'linear-gradient(160deg,#8fa6d1,#5d6fa1)',
     music: {
-      explore: [{ id: 'city-explore', name: 'Vie', src: music('city'), loop: true }],
-      combat:  [{ id: 'city-combat',  name: 'Guardie', src: music('city'), loop: true }],
-      victory: [{ id: 'city-victory', name: 'Corte', src: music('city'), loop: true }]
+      explore: [{ id: 'city-explore', name: 'Vie', src: fmt('city', 'explore'), loop: true }],
+      combat:  [{ id: 'city-combat',  name: 'Guardie', src: fmt('city', 'combat'), loop: true }],
+      victory: [{ id: 'city-victory', name: 'Corte', src: fmt('city', 'victory'), loop: true }]
     },
     ambient: [
       { id: 'market', name: 'Mercato', src: fmt('city', 'market'), loop: true }
@@ -59,9 +57,9 @@ export const scenes = [
     name: 'Sotterranei',
     cover: 'linear-gradient(160deg,#6b5563,#3a2c38)',
     music: {
-      explore: [{ id: 'dungeon-explore', name: 'Cripta', src: music('dungeon'), loop: true }],
-      combat:  [{ id: 'dungeon-combat',  name: 'Orrore', src: music('dungeon'), loop: true }],
-      victory: [{ id: 'dungeon-victory', name: 'Tesoro', src: music('dungeon'), loop: true }]
+      explore: [{ id: 'dungeon-explore', name: 'Cripta', src: fmt('dungeon', 'explore'), loop: true }],
+      combat:  [{ id: 'dungeon-combat',  name: 'Orrore', src: fmt('dungeon', 'combat'), loop: true }],
+      victory: [{ id: 'dungeon-victory', name: 'Tesoro', src: fmt('dungeon', 'victory'), loop: true }]
     },
     ambient: [
       { id: 'drip', name: 'Gocce', src: fmt('dungeon', 'drip'), loop: true }
