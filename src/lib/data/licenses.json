@@ -118,5 +118,149 @@
     "source": "https://pixabay.com/sound-effects/film-special-effects-chains-rattling-74557/",
     "license": "Pixabay",
     "author": "freesound_community"
+  },
+  {
+    "file": "audio/battle/music.webm",
+    "source": "https://pixabay.com/music/action-epic-battle-133925/",
+    "license": "Pixabay",
+    "author": "keyframe_audio"
+  },
+  {
+    "file": "audio/battle/warcries.webm",
+    "source": "https://pixabay.com/sound-effects/people-army-of-soldiers-battle-cry-322709/",
+    "license": "Pixabay",
+    "author": "jesuschristisgod"
+  },
+  {
+    "file": "audio/battle/sword.webm",
+    "source": "https://pixabay.com/sound-effects/film-special-effects-sword-clash-1-6917/",
+    "license": "Pixabay",
+    "author": "freesound_community"
+  },
+  {
+    "file": "audio/inn/music.webm",
+    "source": "https://pixabay.com/music/folk-the-jolly-tankard-medieval-tavern-song-363816/",
+    "license": "Pixabay",
+    "author": "kaazoom"
+  },
+  {
+    "file": "audio/inn/hearth.webm",
+    "source": "https://pixabay.com/sound-effects/nature-fireplace-fire-crackling-loop-123930/",
+    "license": "Pixabay",
+    "author": "SoundsForYou"
+  },
+  {
+    "file": "audio/inn/mug.webm",
+    "source": "https://pixabay.com/sound-effects/film-special-effects-single-ceramic-tee-mug-table-clink-544816/",
+    "license": "Pixabay",
+    "author": "jerryblessed"
+  },
+  {
+    "file": "audio/harbor/music.webm",
+    "source": "https://pixabay.com/music/ambient-a-whisper-of-the-ocean-201864/",
+    "license": "Pixabay",
+    "author": "saavane"
+  },
+  {
+    "file": "audio/harbor/waves.webm",
+    "source": "https://pixabay.com/sound-effects/nature-amb-harbor-waves-24587/",
+    "license": "Pixabay",
+    "author": "freesound_community"
+  },
+  {
+    "file": "audio/harbor/gull.webm",
+    "source": "https://pixabay.com/sound-effects/seagull-sound-effect-272695/",
+    "license": "Pixabay",
+    "author": "u_up4clmd95a"
+  },
+  {
+    "file": "audio/temple/music.webm",
+    "source": "https://pixabay.com/music/ambient-temple-echoes-338505/",
+    "license": "Pixabay",
+    "author": "mohamed_hassan"
+  },
+  {
+    "file": "audio/temple/chant.webm",
+    "source": "https://pixabay.com/sound-effects/monk-chant-temple-fantasy-23124/",
+    "license": "Pixabay",
+    "author": "freesound_community"
+  },
+  {
+    "file": "audio/temple/gong.webm",
+    "source": "https://pixabay.com/sound-effects/deep-gong-77373/",
+    "license": "Pixabay",
+    "author": "freesound_community"
+  },
+  {
+    "file": "audio/mountains/music.webm",
+    "source": "https://pixabay.com/music/electronic-mountain-spirit-cinematic-landscape-score-480097/",
+    "license": "Pixabay",
+    "author": "desifreemusic"
+  },
+  {
+    "file": "audio/mountains/gale.webm",
+    "source": "https://pixabay.com/sound-effects/nature-icy-wind-31377/",
+    "license": "Pixabay",
+    "author": "freesound_community"
+  },
+  {
+    "file": "audio/mountains/rockfall.webm",
+    "source": "https://pixabay.com/sound-effects/rocks-falling-44890/",
+    "license": "Pixabay",
+    "author": "freesound_community"
+  },
+  {
+    "file": "audio/swamp/music.webm",
+    "source": "https://pixabay.com/music/ambient-dark-ambient-music-312293/",
+    "license": "Pixabay",
+    "author": "clavier-music"
+  },
+  {
+    "file": "audio/swamp/frogs.webm",
+    "source": "https://pixabay.com/sound-effects/insects-and-frogs-at-night-17237/",
+    "license": "Pixabay",
+    "author": "freesound_community"
+  },
+  {
+    "file": "audio/swamp/splash.webm",
+    "source": "https://pixabay.com/sound-effects/water-splash-5860/",
+    "license": "Pixabay",
+    "author": "freesound_community"
+  },
+  {
+    "file": "audio/graveyard/music.webm",
+    "source": "https://pixabay.com/music/ambient-eerie-horror-background-music-with-ominous-dark-atmosphere-325580/",
+    "license": "Pixabay",
+    "author": "fopihe"
+  },
+  {
+    "file": "audio/graveyard/moan.webm",
+    "source": "https://pixabay.com/sound-effects/horror-spooky-wind-70657/",
+    "license": "Pixabay",
+    "author": "freesound_community"
+  },
+  {
+    "file": "audio/graveyard/crow.webm",
+    "source": "https://pixabay.com/sound-effects/nature-creepy-crow-caw-322991/",
+    "license": "Pixabay",
+    "author": "dragon-studio"
+  },
+  {
+    "file": "audio/cave/music.webm",
+    "source": "https://pixabay.com/music/mystery-dark-ambient-cave-experience-224286/",
+    "license": "Pixabay",
+    "author": "techtheist"
+  },
+  {
+    "file": "audio/cave/echo.webm",
+    "source": "https://pixabay.com/sound-effects/cave-dripping-water-sound-effect-473424/",
+    "license": "Pixabay",
+    "author": "pwlpl"
+  },
+  {
+    "file": "audio/cave/pickaxe.webm",
+    "source": "https://pixabay.com/sound-effects/mining-with-pick-axe-in-a-group-29590/",
+    "license": "Pixabay",
+    "author": "freesound_community"
   }
 ]
