@@ -160,6 +160,12 @@ describe('AudioEngine play / intensità / oneshot', () => {
     expect(engine.intensity).toBe('combat');
   });
 
+  it('loadScene scarica la scena precedente (no Howl orfani)', () => {
+    const first = engine._layerHowl('tavern-explore');
+    engine.loadScene(demoScene);
+    expect(first.unload).toHaveBeenCalled();
+  });
+
   it('stop() ferma anche gli one-shot', () => {
     engine.playOneShot('door');
     const os = fake.created.at(-1);

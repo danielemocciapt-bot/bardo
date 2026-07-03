@@ -30,9 +30,7 @@ export class AudioEngine {
 
   /** Carica la scena: crea i Howl ambient + il Howl musicale dell'intensità iniziale. */
   loadScene(scene) {
-    this.stop();
-    this._layers.clear();
-    this._oneshots.clear();
+    this.destroy(); // ferma e SCARICA la scena precedente (evita Howl orfani in memoria)
     this._scene = scene;
     this._intensity = 'explore';
 

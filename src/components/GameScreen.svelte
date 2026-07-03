@@ -1,9 +1,5 @@
 <script>
-  import { onMount, onDestroy } from 'svelte';
-  import { AudioEngine } from '../lib/audio/AudioEngine.js';
-  import { createMixer } from '../lib/stores/mixer.js';
-  import { createMediaSession } from '../lib/audio/media-session.js';
-  import { createWakeLock } from '../lib/audio/wake-lock.js';
+  import { player } from '../lib/stores/player.js';
   import NowPlaying from './NowPlaying.svelte';
   import IntensityTabs from './IntensityTabs.svelte';
   import Mixer from './Mixer.svelte';
@@ -12,12 +8,10 @@
   export let scene;
   export let onBack = () => {};
 
-  const engine = new AudioEngine();
-  const wake = createWakeLock();
-  const mixer = createMixer(engine, { mediaSession: createMediaSession(), wakeLock: wake });
-
-  onMount(() => mixer.load(scene));
-  onDestroy(() => mixer.teardown());
+  // questa scena è quella attualmente attiva nel player?
+  $: active = $player.scene && $player.scene.id === scene.id;
+  // stato mostrato: reale se attiva, altrimenti default
+  $: shown = active ? $player : { playing: false, master: 1, intensity: 'explore', layers: {}, keepAwake: false };
 </script>
 
 <div style="padding:10px 16px 0;">
@@ -27,27 +21,28 @@
 </div>
 
 <NowPlaying name={scene.name} image={scene.image ?? ''} />
-{#if !scene.custom && scene.music.combat.length > 0}
-  <IntensityTabs value={$mixer.intensity} onChange={(l) => mixer.setIntensity(l)} />
+
+{#if scene.music.combat.length > 0}
+  <IntensityTabs value={shown.intensity} onChange={(l) => { if (active) player.setIntensity(l); }} />
 {/if}
 
 <div style="text-align:center;margin:4px 0 12px;">
-  <button on:click={() => mixer.togglePlay()}
+  <button on:click={() => (active ? player.togglePlay() : player.playScene(scene))}
     style="border:none;cursor:pointer;background:var(--amber);color:#4a3410;font-weight:700;
            padding:12px 28px;border-radius:24px;font-size:15px;box-shadow:0 3px 0 #d9a85a;">
-    {$mixer.playing ? '⏸ Pausa' : '▶ Play'}
+    {active && shown.playing ? '⏸ Pausa' : '▶ Play'}
   </button>
 </div>
 
-{#if wake.supported}
+{#if player.wakeSupported}
   <div style="text-align:center;margin:-4px 0 10px;">
     <label style="font-size:12px;color:var(--ink-soft);cursor:pointer;">
-      <input type="checkbox" checked={$mixer.keepAwake}
-             on:change={(e) => mixer.setKeepAwake(e.target.checked)} />
+      <input type="checkbox" checked={shown.keepAwake}
+             on:change={(e) => player.setKeepAwake(e.target.checked)} />
       Tieni schermo acceso
     </label>
   </div>
 {/if}
 
-<Mixer {scene} state={$mixer} onMaster={(v) => mixer.setMaster(v)} onLayer={(id, v) => mixer.setLayerVolume(id, v)} />
-<OneShotBar {scene} onPlay={(id) => mixer.oneShot(id)} />
+<Mixer {scene} state={shown} onMaster={(v) => player.setMaster(v)} onLayer={(id, v) => player.setLayer(scene, id, v)} />
+<OneShotBar {scene} onPlay={(id) => player.oneShot(scene, id)} />

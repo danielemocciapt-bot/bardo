@@ -6,6 +6,7 @@
   import GameScreen from './components/GameScreen.svelte';
   import SceneBuilder from './components/SceneBuilder.svelte';
   import Credits from './components/Credits.svelte';
+  import FloatingControls from './components/FloatingControls.svelte';
 
   const route = createRoute();
   $: resolve = (id) => getScene(id) ?? $userScenes.find((s) => s.id === id);
@@ -22,3 +23,5 @@
 {:else}
   <Home onOpen={(id) => route.open(id)} onCreate={() => route.builder()} onCredits={() => route.credits()} />
 {/if}
+
+<FloatingControls />
