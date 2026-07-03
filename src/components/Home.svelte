@@ -1,6 +1,6 @@
 <script>
   import SceneCard from './SceneCard.svelte';
-  import { scenes } from '../lib/data/scenes.js';
+  import { scenes, categories } from '../lib/data/scenes.js';
   import { userScenes } from '../lib/stores/userScenes.js';
   export let onOpen = (_id) => {};
   export let onCreate = () => {};
@@ -9,19 +9,26 @@
   function del(id) {
     if (confirm('Eliminare questa scena?')) userScenes.remove(id);
   }
+  const byCat = (cat) => scenes.filter((s) => (s.category ?? 'fantasy') === cat);
 </script>
 
 <header style="padding:16px 16px 6px;display:flex;align-items:center;gap:8px;">
   <div style="font-family:Georgia,serif;font-size:22px;font-weight:700;color:#7a5a2e;">⚜ Bardo</div>
 </header>
 
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:10px 16px 8px;">
-  {#each scenes as scene}
-    <SceneCard {scene} {onOpen} />
-  {/each}
-</div>
+{#each categories as cat}
+  {@const list = byCat(cat.id)}
+  {#if list.length}
+    <div style="font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:1px;padding:10px 16px 0;">{cat.label}</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:6px 16px 8px;">
+      {#each list as scene}
+        <SceneCard {scene} {onOpen} />
+      {/each}
+    </div>
+  {/if}
+{/each}
 
-<div style="font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:1px;padding:6px 16px 0;">Le mie scene</div>
+<div style="font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:1px;padding:10px 16px 0;">Le mie scene</div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:6px 16px 24px;">
   {#each $userScenes as scene (scene.id)}
     <SceneCard {scene} {onOpen} onDelete={del} />

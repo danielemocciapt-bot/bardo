@@ -2,18 +2,24 @@ import { describe, it, expect } from 'vitest';
 import { scenes, getScene, demoScene } from './scenes.js';
 
 describe('scenes library', () => {
-  it('contiene 12 scene con id/nome/cover e musica esplora', () => {
-    expect(scenes.length).toBe(12);
+  it('contiene 21 scene con id/nome/cover/categoria e musica esplora', () => {
+    expect(scenes.length).toBe(21);
     for (const s of scenes) {
       expect(s.id).toBeTypeOf('string');
       expect(s.name).toBeTypeOf('string');
       expect(s.cover).toBeTypeOf('string');
+      expect(s.category).toBeTypeOf('string');
       expect(s.music.explore.length).toBeGreaterThan(0);
       expect(Array.isArray(s.music.combat)).toBe(true);
       expect(Array.isArray(s.music.victory)).toBe(true);
       expect(s.ambient.length).toBeGreaterThan(0);
       expect(s.oneshots.length).toBeGreaterThan(0);
     }
+  });
+
+  it('ha 4 categorie con scene', () => {
+    const cats = new Set(scenes.map((s) => s.category));
+    expect([...cats].sort()).toEqual(['fantasy', 'horror', 'scifi', 'space']);
   });
 
   it('le 4 scene originali hanno le 3 intensità, le altre sono semplici', () => {

@@ -12,6 +12,7 @@
  * @property {string} name
  * @property {string} cover        // gradiente CSS (fallback / scene custom)
  * @property {string} [image]      // path illustrazione (scene di libreria)
+ * @property {string} [category]   // categoria: 'fantasy' | 'scifi' | 'horror' | 'space'
  * @property {boolean} [custom]    // true per le scene create dall'utente
  * @property {{explore: AudioRef[], combat: AudioRef[], victory: AudioRef[]}} music  // combat/victory vuoti = scena semplice
  * @property {AudioRef[]} ambient
