@@ -54,4 +54,16 @@ describe('route store', () => {
     win._emit('popstate', { state: { builder: true } });
     expect(get(route).view).toBe('builder');
   });
+
+  it('credits passa alla vista credits + pushState', () => {
+    route.credits();
+    expect(get(route)).toEqual({ view: 'credits' });
+    expect(history.pushState).toHaveBeenCalledWith({ credits: true }, '', expect.anything());
+  });
+
+  it('popstate con state.credits ripristina la vista credits', () => {
+    route.credits();
+    win._emit('popstate', { state: { credits: true } });
+    expect(get(route).view).toBe('credits');
+  });
 });

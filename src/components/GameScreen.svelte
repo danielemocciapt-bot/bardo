@@ -25,7 +25,7 @@
            padding:8px 14px;border-radius:20px;font-size:13px;font-weight:600;">← Home</button>
 </div>
 
-<NowPlaying name={scene.name} />
+<NowPlaying name={scene.name} image={scene.image ?? ''} />
 {#if !scene.custom && scene.music.combat.length > 0}
   <IntensityTabs value={$mixer.intensity} onChange={(l) => mixer.setIntensity(l)} />
 {/if}

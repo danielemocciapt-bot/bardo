@@ -25,13 +25,19 @@ export function createRoute(deps = {}) {
     history?.pushState({ builder: true }, '', '#/builder');
   }
 
+  function credits() {
+    set({ view: 'credits' });
+    history?.pushState({ credits: true }, '', '#/credits');
+  }
+
   // il tasto Indietro (o back()) emette popstate: ripristina la vista dallo stato
   target?.addEventListener('popstate', (ev) => {
     const st = ev?.state;
     if (st?.sceneId) set({ view: 'game', sceneId: st.sceneId });
     else if (st?.builder) set({ view: 'builder' });
+    else if (st?.credits) set({ view: 'credits' });
     else set({ view: 'home' });
   });
 
-  return { subscribe, open, home, builder };
+  return { subscribe, open, home, builder, credits };
 }
