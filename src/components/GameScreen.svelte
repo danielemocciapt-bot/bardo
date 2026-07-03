@@ -26,7 +26,7 @@
 </div>
 
 <NowPlaying name={scene.name} />
-{#if !scene.custom}
+{#if !scene.custom && scene.music.combat.length > 0}
   <IntensityTabs value={$mixer.intensity} onChange={(l) => mixer.setIntensity(l)} />
 {/if}
 
