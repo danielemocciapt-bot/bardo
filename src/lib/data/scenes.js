@@ -162,63 +162,63 @@ export const scenes = [
   {
     id: 'starship', name: 'Nave stellare', category: 'scifi',
     cover: 'linear-gradient(160deg,#4a90c0,#12314a)', image: img('starship'),
-    music: { explore: [{ id: 'starship-explore', name: 'Ponte', src: fmt('starship', 'music'), loop: true }], combat: [], victory: [] },
+    music: { explore: [{ id: 'starship-explore', name: 'Ponte', src: fmt('starship', 'music'), loop: true }], combat: [{ id: 'starship-combat', name: 'Combattimento', src: fmt('starship', 'combat'), loop: true }], victory: [{ id: 'starship-victory', name: 'Vittoria', src: fmt('starship', 'victory'), loop: true }] },
     ambient: [{ id: 'enginehum', name: 'Motori', src: fmt('starship', 'enginehum'), loop: true }],
     oneshots: [{ id: 'laser', name: 'Laser', src: fmt('starship', 'laser') }]
   },
   {
     id: 'cyber', name: 'Città cyberpunk', category: 'scifi',
     cover: 'linear-gradient(160deg,#d05aa8,#3a1a5a)', image: img('cyber'),
-    music: { explore: [{ id: 'cyber-explore', name: 'Neon', src: fmt('cyber', 'music'), loop: true }], combat: [], victory: [] },
+    music: { explore: [{ id: 'cyber-explore', name: 'Neon', src: fmt('cyber', 'music'), loop: true }], combat: [{ id: 'cyber-combat', name: 'Combattimento', src: fmt('cyber', 'combat'), loop: true }], victory: [{ id: 'cyber-victory', name: 'Vittoria', src: fmt('cyber', 'victory'), loop: true }] },
     ambient: [{ id: 'neonrain', name: 'Pioggia neon', src: fmt('cyber', 'neonrain'), loop: true }],
     oneshots: [{ id: 'glitch', name: 'Glitch', src: fmt('cyber', 'glitch') }]
   },
   {
     id: 'lab', name: 'Laboratorio', category: 'scifi',
     cover: 'linear-gradient(160deg,#7ab0d0,#25546e)', image: img('lab'),
-    music: { explore: [{ id: 'lab-explore', name: 'Reparto', src: fmt('lab', 'music'), loop: true }], combat: [], victory: [] },
+    music: { explore: [{ id: 'lab-explore', name: 'Reparto', src: fmt('lab', 'music'), loop: true }], combat: [{ id: 'lab-combat', name: 'Combattimento', src: fmt('lab', 'combat'), loop: true }], victory: [{ id: 'lab-victory', name: 'Vittoria', src: fmt('lab', 'victory'), loop: true }] },
     ambient: [{ id: 'machinebeep', name: 'Macchinari', src: fmt('lab', 'machinebeep'), loop: true }],
     oneshots: [{ id: 'alarm', name: 'Allarme', src: fmt('lab', 'alarm') }]
   },
   {
     id: 'haunted', name: 'Villa infestata', category: 'horror',
     cover: 'linear-gradient(160deg,#6a5a7a,#2a1f38)', image: img('haunted'),
-    music: { explore: [{ id: 'haunted-explore', name: 'Presenza', src: fmt('haunted', 'music'), loop: true }], combat: [], victory: [] },
+    music: { explore: [{ id: 'haunted-explore', name: 'Presenza', src: fmt('haunted', 'music'), loop: true }], combat: [{ id: 'haunted-combat', name: 'Combattimento', src: fmt('haunted', 'combat'), loop: true }], victory: [{ id: 'haunted-victory', name: 'Vittoria', src: fmt('haunted', 'victory'), loop: true }] },
     ambient: [{ id: 'creaks', name: 'Scricchiolii', src: fmt('haunted', 'creaks'), loop: true }],
     oneshots: [{ id: 'scream', name: 'Urlo', src: fmt('haunted', 'scream') }]
   },
   {
     id: 'asylum', name: 'Manicomio', category: 'horror',
     cover: 'linear-gradient(160deg,#8a9a90,#2e3a34)', image: img('asylum'),
-    music: { explore: [{ id: 'asylum-explore', name: 'Corsia', src: fmt('asylum', 'music'), loop: true }], combat: [], victory: [] },
+    music: { explore: [{ id: 'asylum-explore', name: 'Corsia', src: fmt('asylum', 'music'), loop: true }], combat: [{ id: 'asylum-combat', name: 'Combattimento', src: fmt('asylum', 'combat'), loop: true }], victory: [{ id: 'asylum-victory', name: 'Vittoria', src: fmt('asylum', 'victory'), loop: true }] },
     ambient: [{ id: 'asylumamb', name: 'Sussurri', src: fmt('asylum', 'asylumamb'), loop: true }],
     oneshots: [{ id: 'clang', name: 'Clangore', src: fmt('asylum', 'clang') }]
   },
   {
     id: 'ritual', name: 'Rito oscuro', category: 'horror',
     cover: 'linear-gradient(160deg,#a0403a,#3a1015)', image: img('ritual'),
-    music: { explore: [{ id: 'ritual-explore', name: 'Rituale', src: fmt('ritual', 'music'), loop: true }], combat: [], victory: [] },
+    music: { explore: [{ id: 'ritual-explore', name: 'Rituale', src: fmt('ritual', 'music'), loop: true }], combat: [{ id: 'ritual-combat', name: 'Combattimento', src: fmt('ritual', 'combat'), loop: true }], victory: [{ id: 'ritual-victory', name: 'Vittoria', src: fmt('ritual', 'victory'), loop: true }] },
     ambient: [{ id: 'drone', name: 'Ronzio', src: fmt('ritual', 'drone'), loop: true }],
     oneshots: [{ id: 'heartbeat', name: 'Battito', src: fmt('ritual', 'heartbeat') }]
   },
   {
     id: 'deepspace', name: 'Spazio profondo', category: 'space',
     cover: 'linear-gradient(160deg,#4a5aa8,#101030)', image: img('deepspace'),
-    music: { explore: [{ id: 'deepspace-explore', name: 'Vuoto', src: fmt('deepspace', 'music'), loop: true }], combat: [], victory: [] },
+    music: { explore: [{ id: 'deepspace-explore', name: 'Vuoto', src: fmt('deepspace', 'music'), loop: true }], combat: [{ id: 'deepspace-combat', name: 'Combattimento', src: fmt('deepspace', 'combat'), loop: true }], victory: [{ id: 'deepspace-victory', name: 'Vittoria', src: fmt('deepspace', 'victory'), loop: true }] },
     ambient: [{ id: 'cosmicdrone', name: 'Cosmo', src: fmt('deepspace', 'cosmicdrone'), loop: true }],
     oneshots: [{ id: 'radiobeep', name: 'Segnale', src: fmt('deepspace', 'radiobeep') }]
   },
   {
     id: 'station', name: 'Stazione spaziale', category: 'space',
     cover: 'linear-gradient(160deg,#7a90b0,#2a3a55)', image: img('station'),
-    music: { explore: [{ id: 'station-explore', name: 'Orbita', src: fmt('station', 'music'), loop: true }], combat: [], victory: [] },
+    music: { explore: [{ id: 'station-explore', name: 'Orbita', src: fmt('station', 'music'), loop: true }], combat: [{ id: 'station-combat', name: 'Combattimento', src: fmt('station', 'combat'), loop: true }], victory: [{ id: 'station-victory', name: 'Vittoria', src: fmt('station', 'victory'), loop: true }] },
     ambient: [{ id: 'stationhum', name: 'Ronzio', src: fmt('station', 'stationhum'), loop: true }],
     oneshots: [{ id: 'airlock', name: 'Portello', src: fmt('station', 'airlock') }]
   },
   {
     id: 'alien', name: 'Pianeta alieno', category: 'space',
     cover: 'linear-gradient(160deg,#8ac07a,#3a2a5a)', image: img('alien'),
-    music: { explore: [{ id: 'alien-explore', name: 'Ignoto', src: fmt('alien', 'music'), loop: true }], combat: [], victory: [] },
+    music: { explore: [{ id: 'alien-explore', name: 'Ignoto', src: fmt('alien', 'music'), loop: true }], combat: [{ id: 'alien-combat', name: 'Combattimento', src: fmt('alien', 'combat'), loop: true }], victory: [{ id: 'alien-victory', name: 'Vittoria', src: fmt('alien', 'victory'), loop: true }] },
     ambient: [{ id: 'alienwild', name: 'Fauna aliena', src: fmt('alien', 'alienwild'), loop: true }],
     oneshots: [{ id: 'creature', name: 'Creatura', src: fmt('alien', 'creature') }]
   }
