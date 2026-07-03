@@ -26,11 +26,16 @@
   <IntensityTabs value={shown.intensity} onChange={(l) => { if (active) player.setIntensity(l); }} />
 {/if}
 
-<div style="text-align:center;margin:4px 0 12px;">
+<div style="display:flex;gap:10px;justify-content:center;margin:4px 16px 12px;">
   <button on:click={() => (active ? player.togglePlay() : player.playScene(scene))}
-    style="border:none;cursor:pointer;background:var(--amber);color:#4a3410;font-weight:700;
-           padding:12px 28px;border-radius:24px;font-size:15px;box-shadow:0 3px 0 #d9a85a;">
+    style="flex:1;max-width:170px;border:none;cursor:pointer;background:var(--amber);color:#4a3410;font-weight:700;
+           padding:12px 0;border-radius:24px;font-size:15px;box-shadow:0 3px 0 #d9a85a;">
     {active && shown.playing ? '⏸ Pausa' : '▶ Play'}
+  </button>
+  <button on:click={() => player.playMixScene(scene)}
+    style="flex:1;max-width:170px;border:none;cursor:pointer;background:#fff;color:var(--amber-deep);font-weight:700;
+           padding:12px 0;border-radius:24px;font-size:15px;box-shadow:0 3px 0 #d9a85a;">
+    🎲 Play Mix
   </button>
 </div>
 

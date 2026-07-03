@@ -55,4 +55,25 @@ describe('player globale', () => {
     expect(engine.playOneShot).toHaveBeenCalledWith('twig');
     expect(get(player).scene.id).toBe('forest');
   });
+
+  it('playMix alza gli ambient, suona e fa partire effetti a intervalli', () => {
+    vi.useFakeTimers();
+    player.playMixScene(B); // forest: ambient 'wind', oneshot 'twig'
+    expect(engine.play).toHaveBeenCalled();
+    expect(engine.setLayerVolume).toHaveBeenCalled(); // ambient alzato
+    engine.playOneShot.mockClear();
+    vi.advanceTimersByTime(21000); // oltre l'intervallo massimo
+    expect(engine.playOneShot).toHaveBeenCalled();
+    vi.useRealTimers();
+  });
+
+  it('la pausa ferma il timer del mix', () => {
+    vi.useFakeTimers();
+    player.playMixScene(B);
+    player.togglePlay(); // pausa
+    engine.playOneShot.mockClear();
+    vi.advanceTimersByTime(30000);
+    expect(engine.playOneShot).not.toHaveBeenCalled();
+    vi.useRealTimers();
+  });
 });
