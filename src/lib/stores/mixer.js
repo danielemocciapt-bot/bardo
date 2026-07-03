@@ -56,6 +56,14 @@ export function createMixer(engine, deps = {}) {
     update((s) => ({ ...s, playing: false }));
   }
 
+  /** Smontaggio scena: ferma e scarica tutto l'audio, rilascia wake lock / media session. */
+  function teardown() {
+    engine.destroy();
+    _playing = false;
+    wakeLock?.disable();
+    mediaSession?.setPlaybackState('none');
+  }
+
   function setKeepAwake(on) {
     update((s) => {
       if (wakeLock) { (on && s.playing) ? wakeLock.enable() : wakeLock.disable(); }
@@ -82,5 +90,5 @@ export function createMixer(engine, deps = {}) {
     engine.playOneShot(id);
   }
 
-  return { subscribe, load, togglePlay, setMaster, setLayerVolume, setIntensity, oneShot, stop, setKeepAwake };
+  return { subscribe, load, togglePlay, setMaster, setLayerVolume, setIntensity, oneShot, stop, setKeepAwake, teardown };
 }

@@ -13,6 +13,7 @@ function fakeEngine() {
     setMasterVolume: vi.fn(),
     setIntensity: vi.fn(),
     playOneShot: vi.fn(),
+    destroy: vi.fn(),
     intensity: 'explore'
   };
 }
@@ -53,5 +54,15 @@ describe('mixer store', () => {
     mixer.togglePlay();
     expect(engine.pause).toHaveBeenCalled();
     expect(get(mixer).playing).toBe(false);
+  });
+
+  it('teardown scarica l\'engine e rilascia il wake lock', () => {
+    const wakeLock = { enable: vi.fn(), disable: vi.fn() };
+    const e2 = fakeEngine();
+    const m2 = createMixer(e2, { wakeLock });
+    m2.load(demoScene);
+    m2.teardown();
+    expect(e2.destroy).toHaveBeenCalled();
+    expect(wakeLock.disable).toHaveBeenCalled();
   });
 });

@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from 'svelte';
+  import { onMount, onDestroy } from 'svelte';
   import { AudioEngine } from '../lib/audio/AudioEngine.js';
   import { createMixer } from '../lib/stores/mixer.js';
   import { createMediaSession } from '../lib/audio/media-session.js';
@@ -17,6 +17,7 @@
   const mixer = createMixer(engine, { mediaSession: createMediaSession(), wakeLock: wake });
 
   onMount(() => mixer.load(scene));
+  onDestroy(() => mixer.teardown());
 </script>
 
 <div style="padding:10px 16px 0;">

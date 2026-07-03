@@ -159,4 +159,23 @@ describe('AudioEngine play / intensità / oneshot', () => {
     expect(music.stop).not.toHaveBeenCalled();
     expect(engine.intensity).toBe('combat');
   });
+
+  it('stop() ferma anche gli one-shot', () => {
+    engine.playOneShot('door');
+    const os = fake.created.at(-1);
+    engine.stop();
+    expect(os.stop).toHaveBeenCalled();
+  });
+
+  it('destroy() ferma e scarica layer + one-shot e svuota le mappe', () => {
+    engine.play();
+    engine.playOneShot('door');
+    const music = engine._layerHowl('tavern-explore');
+    const os = fake.created.at(-1);
+    engine.destroy();
+    expect(music.stop).toHaveBeenCalled();
+    expect(music.unload).toHaveBeenCalled();
+    expect(os.unload).toHaveBeenCalled();
+    expect(engine._layerHowl('tavern-explore')).toBeNull();
+  });
 });

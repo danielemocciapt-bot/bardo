@@ -69,6 +69,16 @@ export class AudioEngine {
   stop() {
     this._playing = false;
     for (const { howl } of this._layers.values()) howl.stop();
+    for (const howl of this._oneshots.values()) howl.stop();
+  }
+
+  /** Ferma e scarica tutto l'audio (uso: uscita dalla scena / smontaggio). */
+  destroy() {
+    this._playing = false;
+    for (const { howl } of this._layers.values()) { howl.stop(); howl.unload(); }
+    for (const howl of this._oneshots.values()) { howl.stop(); howl.unload(); }
+    this._layers.clear();
+    this._oneshots.clear();
   }
 
   pause() {
