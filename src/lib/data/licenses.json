@@ -424,5 +424,101 @@
     "source": "https://pixabay.com/sound-effects/cosmic-monster-growl-80376/",
     "license": "Pixabay",
     "author": "freesound_community"
+  },
+  {
+    "file": "audio/battle/combat.webm",
+    "source": "https://pixabay.com/music/epic-classical-the-fight-epic-battle-music-4285/",
+    "license": "Pixabay",
+    "author": ""
+  },
+  {
+    "file": "audio/battle/victory.webm",
+    "source": "https://pixabay.com/music/main-title-victory-epic-music-155790/",
+    "license": "Pixabay",
+    "author": ""
+  },
+  {
+    "file": "audio/inn/combat.webm",
+    "source": "https://pixabay.com/music/build-up-scenes-epic-battle-114919/",
+    "license": "Pixabay",
+    "author": ""
+  },
+  {
+    "file": "audio/inn/victory.webm",
+    "source": "https://pixabay.com/music/upbeat-victory-fanfare-beat-at-90bpm-130434/",
+    "license": "Pixabay",
+    "author": ""
+  },
+  {
+    "file": "audio/harbor/combat.webm",
+    "source": "https://pixabay.com/music/main-title-epic-battle-song-182915/",
+    "license": "Pixabay",
+    "author": ""
+  },
+  {
+    "file": "audio/harbor/victory.webm",
+    "source": "https://pixabay.com/music/main-title-victory-epic-music-155790/",
+    "license": "Pixabay",
+    "author": ""
+  },
+  {
+    "file": "audio/temple/combat.webm",
+    "source": "https://pixabay.com/music/main-title-epic-battle-francisco-samuel-123469/",
+    "license": "Pixabay",
+    "author": ""
+  },
+  {
+    "file": "audio/temple/victory.webm",
+    "source": "https://pixabay.com/music/upbeat-victory-fanfare-beat-at-90bpm-130434/",
+    "license": "Pixabay",
+    "author": ""
+  },
+  {
+    "file": "audio/mountains/combat.webm",
+    "source": "https://pixabay.com/music/main-title-through-the-storm-epic-battle-433953/",
+    "license": "Pixabay",
+    "author": ""
+  },
+  {
+    "file": "audio/mountains/victory.webm",
+    "source": "https://pixabay.com/music/main-title-victory-epic-music-155790/",
+    "license": "Pixabay",
+    "author": ""
+  },
+  {
+    "file": "audio/swamp/combat.webm",
+    "source": "https://pixabay.com/music/epic-classical-the-fight-epic-battle-music-4285/",
+    "license": "Pixabay",
+    "author": ""
+  },
+  {
+    "file": "audio/swamp/victory.webm",
+    "source": "https://pixabay.com/music/upbeat-victory-fanfare-beat-at-90bpm-130434/",
+    "license": "Pixabay",
+    "author": ""
+  },
+  {
+    "file": "audio/graveyard/combat.webm",
+    "source": "https://pixabay.com/music/build-up-scenes-epic-battle-114919/",
+    "license": "Pixabay",
+    "author": ""
+  },
+  {
+    "file": "audio/graveyard/victory.webm",
+    "source": "https://pixabay.com/music/main-title-victory-epic-music-155790/",
+    "license": "Pixabay",
+    "author": ""
+  },
+  {
+    "file": "audio/cave/combat.webm",
+    "source": "https://pixabay.com/music/main-title-epic-battle-song-182915/",
+    "license": "Pixabay",
+    "author": ""
+  },
+  {
+    "file": "audio/cave/victory.webm",
+    "source": "https://pixabay.com/music/upbeat-victory-fanfare-beat-at-90bpm-130434/",
+    "license": "Pixabay",
+    "author": ""
   }
 ]

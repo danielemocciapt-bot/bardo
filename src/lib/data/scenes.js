@@ -85,7 +85,7 @@ export const scenes = [
     cover: 'linear-gradient(160deg,#d98a6a,#8a3a2a)',
     image: img('battle'),
     category: 'fantasy',
-    music: { explore: [{ id: 'battle-explore', name: 'Fronte', src: fmt('battle', 'music'), loop: true }], combat: [], victory: [] },
+    music: { explore: [{ id: 'battle-explore', name: 'Fronte', src: fmt('battle', 'music'), loop: true }], combat: [{ id: 'battle-combat', name: 'Combattimento', src: fmt('battle', 'combat'), loop: true }], victory: [{ id: 'battle-victory', name: 'Vittoria', src: fmt('battle', 'victory'), loop: true }] },
     ambient: [{ id: 'warcries', name: 'Mischia', src: fmt('battle', 'warcries'), loop: true }],
     oneshots: [{ id: 'sword', name: 'Spade', src: fmt('battle', 'sword') }]
   },
@@ -95,7 +95,7 @@ export const scenes = [
     cover: 'linear-gradient(160deg,#e8c48a,#a8763e)',
     image: img('inn'),
     category: 'fantasy',
-    music: { explore: [{ id: 'inn-explore', name: 'Focolare', src: fmt('inn', 'music'), loop: true }], combat: [], victory: [] },
+    music: { explore: [{ id: 'inn-explore', name: 'Focolare', src: fmt('inn', 'music'), loop: true }], combat: [{ id: 'inn-combat', name: 'Combattimento', src: fmt('inn', 'combat'), loop: true }], victory: [{ id: 'inn-victory', name: 'Vittoria', src: fmt('inn', 'victory'), loop: true }] },
     ambient: [{ id: 'hearth', name: 'Camino', src: fmt('inn', 'hearth'), loop: true }],
     oneshots: [{ id: 'mug', name: 'Boccale', src: fmt('inn', 'mug') }]
   },
@@ -105,7 +105,7 @@ export const scenes = [
     cover: 'linear-gradient(160deg,#8ec5d6,#3a7a9a)',
     image: img('harbor'),
     category: 'fantasy',
-    music: { explore: [{ id: 'harbor-explore', name: 'Marea', src: fmt('harbor', 'music'), loop: true }], combat: [], victory: [] },
+    music: { explore: [{ id: 'harbor-explore', name: 'Marea', src: fmt('harbor', 'music'), loop: true }], combat: [{ id: 'harbor-combat', name: 'Combattimento', src: fmt('harbor', 'combat'), loop: true }], victory: [{ id: 'harbor-victory', name: 'Vittoria', src: fmt('harbor', 'victory'), loop: true }] },
     ambient: [{ id: 'waves', name: 'Onde', src: fmt('harbor', 'waves'), loop: true }],
     oneshots: [{ id: 'gull', name: 'Gabbiano', src: fmt('harbor', 'gull') }]
   },
@@ -115,7 +115,7 @@ export const scenes = [
     cover: 'linear-gradient(160deg,#cdbfa0,#7a6a4a)',
     image: img('temple'),
     category: 'fantasy',
-    music: { explore: [{ id: 'temple-explore', name: 'Sacrario', src: fmt('temple', 'music'), loop: true }], combat: [], victory: [] },
+    music: { explore: [{ id: 'temple-explore', name: 'Sacrario', src: fmt('temple', 'music'), loop: true }], combat: [{ id: 'temple-combat', name: 'Combattimento', src: fmt('temple', 'combat'), loop: true }], victory: [{ id: 'temple-victory', name: 'Vittoria', src: fmt('temple', 'victory'), loop: true }] },
     ambient: [{ id: 'chant', name: 'Eco', src: fmt('temple', 'chant'), loop: true }],
     oneshots: [{ id: 'gong', name: 'Gong', src: fmt('temple', 'gong') }]
   },
@@ -125,7 +125,7 @@ export const scenes = [
     cover: 'linear-gradient(160deg,#cfe0ea,#7a90a8)',
     image: img('mountains'),
     category: 'fantasy',
-    music: { explore: [{ id: 'mountains-explore', name: 'Vetta', src: fmt('mountains', 'music'), loop: true }], combat: [], victory: [] },
+    music: { explore: [{ id: 'mountains-explore', name: 'Vetta', src: fmt('mountains', 'music'), loop: true }], combat: [{ id: 'mountains-combat', name: 'Combattimento', src: fmt('mountains', 'combat'), loop: true }], victory: [{ id: 'mountains-victory', name: 'Vittoria', src: fmt('mountains', 'victory'), loop: true }] },
     ambient: [{ id: 'gale', name: 'Bufera', src: fmt('mountains', 'gale'), loop: true }],
     oneshots: [{ id: 'rockfall', name: 'Frana', src: fmt('mountains', 'rockfall') }]
   },
@@ -135,7 +135,7 @@ export const scenes = [
     cover: 'linear-gradient(160deg,#8a9a6a,#3a4a2a)',
     image: img('swamp'),
     category: 'fantasy',
-    music: { explore: [{ id: 'swamp-explore', name: 'Acquitrino', src: fmt('swamp', 'music'), loop: true }], combat: [], victory: [] },
+    music: { explore: [{ id: 'swamp-explore', name: 'Acquitrino', src: fmt('swamp', 'music'), loop: true }], combat: [{ id: 'swamp-combat', name: 'Combattimento', src: fmt('swamp', 'combat'), loop: true }], victory: [{ id: 'swamp-victory', name: 'Vittoria', src: fmt('swamp', 'victory'), loop: true }] },
     ambient: [{ id: 'frogs', name: 'Rane', src: fmt('swamp', 'frogs'), loop: true }],
     oneshots: [{ id: 'splash', name: 'Tonfo', src: fmt('swamp', 'splash') }]
   },
@@ -145,7 +145,7 @@ export const scenes = [
     cover: 'linear-gradient(160deg,#9a9aa8,#4a4a58)',
     image: img('graveyard'),
     category: 'fantasy',
-    music: { explore: [{ id: 'graveyard-explore', name: 'Requiem', src: fmt('graveyard', 'music'), loop: true }], combat: [], victory: [] },
+    music: { explore: [{ id: 'graveyard-explore', name: 'Requiem', src: fmt('graveyard', 'music'), loop: true }], combat: [{ id: 'graveyard-combat', name: 'Combattimento', src: fmt('graveyard', 'combat'), loop: true }], victory: [{ id: 'graveyard-victory', name: 'Vittoria', src: fmt('graveyard', 'victory'), loop: true }] },
     ambient: [{ id: 'moan', name: 'Lamento', src: fmt('graveyard', 'moan'), loop: true }],
     oneshots: [{ id: 'crow', name: 'Corvo', src: fmt('graveyard', 'crow') }]
   },
@@ -155,7 +155,7 @@ export const scenes = [
     cover: 'linear-gradient(160deg,#8a7a6a,#3a2f28)',
     image: img('cave'),
     category: 'fantasy',
-    music: { explore: [{ id: 'cave-explore', name: 'Cunicolo', src: fmt('cave', 'music'), loop: true }], combat: [], victory: [] },
+    music: { explore: [{ id: 'cave-explore', name: 'Cunicolo', src: fmt('cave', 'music'), loop: true }], combat: [{ id: 'cave-combat', name: 'Combattimento', src: fmt('cave', 'combat'), loop: true }], victory: [{ id: 'cave-victory', name: 'Vittoria', src: fmt('cave', 'victory'), loop: true }] },
     ambient: [{ id: 'echo', name: 'Eco', src: fmt('cave', 'echo'), loop: true }],
     oneshots: [{ id: 'pickaxe', name: 'Piccone', src: fmt('cave', 'pickaxe') }]
   },

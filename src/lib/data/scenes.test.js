@@ -22,9 +22,13 @@ describe('scenes library', () => {
     expect([...cats].sort()).toEqual(['fantasy', 'horror', 'scifi', 'space']);
   });
 
-  it('le 4 scene originali hanno le 3 intensità, le altre sono semplici', () => {
-    const withIntensity = scenes.filter((s) => s.music.combat.length > 0).map((s) => s.id);
-    expect(withIntensity.sort()).toEqual(['city', 'dungeon', 'forest', 'tavern']);
+  it('tutte le scene fantasy hanno le 3 intensità', () => {
+    const fantasy = scenes.filter((s) => s.category === 'fantasy');
+    expect(fantasy.length).toBeGreaterThan(0);
+    for (const s of fantasy) {
+      expect(s.music.combat.length).toBeGreaterThan(0);
+      expect(s.music.victory.length).toBeGreaterThan(0);
+    }
   });
 
   it('ha id scena unici', () => {
