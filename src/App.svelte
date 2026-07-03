@@ -7,10 +7,13 @@
   import SceneBuilder from './components/SceneBuilder.svelte';
   import Credits from './components/Credits.svelte';
   import FloatingControls from './components/FloatingControls.svelte';
+  import InstrumentsBg from './components/InstrumentsBg.svelte';
 
   const route = createRoute();
   $: resolve = (id) => getScene(id) ?? $userScenes.find((s) => s.id === id);
 </script>
+
+<InstrumentsBg />
 
 {#if $route.view === 'game'}
   {#key $route.sceneId}

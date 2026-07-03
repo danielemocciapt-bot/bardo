@@ -9,9 +9,31 @@
   --radius: 16px;
 }
 * { box-sizing: border-box; }
+html {
+  -webkit-tap-highlight-color: transparent; /* niente flash blu/grigio al tocco su mobile */
+}
 body {
   margin: 0;
   font-family: system-ui, sans-serif;
   background: var(--bg);
   color: var(--ink);
+}
+
+/* Feedback tocco: "press" tattile invece dell'evidenziazione blu */
+button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;        /* no ritardo 300ms / zoom doppio-tap */
+  user-select: none;
+  -webkit-user-select: none;
+  transition: transform 0.08s ease, filter 0.12s ease;
+}
+button:active {
+  transform: scale(0.95);
+  filter: brightness(0.93);
+}
+/* niente contorno al tap; resta solo per navigazione da tastiera */
+button:focus { outline: none; }
+button:focus-visible {
+  outline: 2px solid var(--amber-deep);
+  outline-offset: 2px;
 }
