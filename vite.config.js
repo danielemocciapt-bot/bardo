@@ -8,13 +8,28 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,webmanifest,webm,m4a}'],
-        maximumFileSizeToCacheInBytes: 6 * 1024 * 1024
+        // Precache solo app-shell + immagini (leggere). L'audio NON è precache:
+        // si scarica alla prima riproduzione e resta in cache (runtime CacheFirst).
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,webmanifest,webp}'],
+        maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
+        runtimeCaching: [
+          {
+            urlPattern: ({ url }) => url.pathname.includes('/audio/'),
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'bardo-audio',
+              rangeRequests: true,
+              cacheableResponse: { statuses: [0, 200, 206] },
+              expiration: { maxEntries: 300, maxAgeSeconds: 60 * 60 * 24 * 60 }
+            }
+          }
+        ]
       },
       manifest: {
         name: 'Bardo',
         short_name: 'Bardo',
         description: 'Colonne sonore per giochi di ruolo',
+        lang: 'it',
         theme_color: '#ecb14c',
         background_color: '#f6ecd6',
         display: 'standalone',
