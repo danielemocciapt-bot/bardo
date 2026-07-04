@@ -26,7 +26,7 @@
   };
 </script>
 
-<div style="padding:10px 16px 0;">
+<div style="padding:12px 16px 12px;">
   <button on:click={onBack}
     style="border:none;cursor:pointer;background:#ffffff88;color:var(--ink);
            padding:8px 14px;border-radius:20px;font-size:13px;font-weight:600;">← Home</button>
