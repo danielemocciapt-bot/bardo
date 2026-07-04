@@ -18,7 +18,7 @@ export default defineConfig({
             urlPattern: ({ url }) => url.pathname.includes('/audio/'),
             handler: 'CacheFirst',
             options: {
-              cacheName: 'bardo-audio-v2', // bump: forza il refetch dopo la normalizzazione loudness
+              cacheName: 'bardo-audio-v3', // bump: refetch (normalizzazione loudness + nuovo suono allarme lab)
               rangeRequests: true,
               cacheableResponse: { statuses: [0, 200, 206] },
               expiration: { maxEntries: 300, maxAgeSeconds: 60 * 60 * 24 * 60 }
