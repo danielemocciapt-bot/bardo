@@ -36,9 +36,10 @@ export function createPlayer(deps = {}) {
     if (currentId() !== scene.id) { mixer.load(scene); _clearMix(); }
   }
 
-  function playScene(scene) {
+  function playScene(scene, intensity = 'explore') {
     _ensure(scene);
     _clearMix(); // play normale: niente auto-mix
+    if (intensity && intensity !== 'explore') mixer.setIntensity(intensity); // parte dall'intensità scelta
     if (!get(mixer).playing) mixer.togglePlay();
   }
 

@@ -29,6 +29,8 @@
     <path d="M12 3 C15 9 18 12 18 15 a6 6 0 0 1 -12 0 c0 -3 3 -6 6 -12 Z"/><path d="M4 9 l1.5 -1.5 M20 9 l-1.5 -1.5"/>
   {:else if sound === 'crow'}
     <path d="M6 18 q-2 -8 6 -9 q4 0 5 3 q3 0.5 4 -1 q-1 3.5 -4 3.5 q0 4.5 -5 4.5 Z"/><circle cx="10" cy="10.5" r="0.6" fill="currentColor" stroke="none"/><path d="M11 18 v3 M14 18 v3"/>
+  {:else if sound === 'pigeon'}
+    <path d="M3 15 q2 -6 8 -5 q1 -3 4 -4 q0 3 -2 4 q3 1 3 4 q0 3 -4 3 q-7 1 -9 -2 Z"/><circle cx="12.6" cy="9.6" r="0.6" fill="currentColor" stroke="none"/><path d="M11 16 v3 M14 16 v3"/>
   {:else if sound === 'pickaxe'}
     <path d="M3 7 Q12 2 21 7"/><path d="M12 5 V21"/>
   {:else if sound === 'laser'}

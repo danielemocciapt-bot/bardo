@@ -77,7 +77,7 @@ export const scenes = [
     oneshots: [
       { id: 'bell', name: 'Campana', src: fmt('city', 'bell') },
       { id: 'city-door', name: 'Portone', src: fmt('tavern', 'door') },
-      { id: 'city-crow', name: 'Piccioni', src: fmt('graveyard', 'crow') },
+      { id: 'city-pigeon', name: 'Piccioni', src: fmt('city', 'pigeon') },
       { id: 'city-clang', name: 'Incudine', src: fmt('asylum', 'clang') },
       { id: 'city-sword', name: 'Guardie', src: fmt('battle', 'sword') }
     ]

@@ -7,9 +7,9 @@
   },
   {
     "file": "audio/tavern/combat.webm",
-    "source": "https://pixabay.com/music/celtic-medieval-dance-party-486731/",
+    "source": "https://pixabay.com/music/adventure-battle-535023/",
     "license": "Pixabay",
-    "author": "vifotofreesounds"
+    "author": "alexgrohl"
   },
   {
     "file": "audio/tavern/victory.webm",
@@ -88,6 +88,12 @@
     "source": "https://pixabay.com/sound-effects/city-church-bell-32729/",
     "license": "Pixabay",
     "author": "freesound_community"
+  },
+  {
+    "file": "audio/city/pigeon.webm",
+    "source": "https://pixabay.com/sound-effects/nature-mourning-dove-coo-335480/",
+    "license": "Pixabay",
+    "author": "DRAGON-STUDIO"
   },
   {
     "file": "audio/dungeon/explore.webm",
@@ -331,9 +337,9 @@
   },
   {
     "file": "audio/haunted/scream.webm",
-    "source": "https://pixabay.com/sound-effects/short-scream-86047/",
+    "source": "https://pixabay.com/sound-effects/film-special-effects-scary-scream-401725/",
     "license": "Pixabay",
-    "author": "freesound_community"
+    "author": "floraphonic"
   },
   {
     "file": "audio/asylum/music.webm",
@@ -427,9 +433,9 @@
   },
   {
     "file": "audio/battle/combat.webm",
-    "source": "https://pixabay.com/music/epic-classical-the-fight-epic-battle-music-4285/",
+    "source": "https://pixabay.com/music/adventure-battle-drums-485960/",
     "license": "Pixabay",
-    "author": ""
+    "author": "stereo_color"
   },
   {
     "file": "audio/battle/victory.webm",
@@ -439,9 +445,9 @@
   },
   {
     "file": "audio/inn/combat.webm",
-    "source": "https://pixabay.com/music/build-up-scenes-epic-battle-114919/",
+    "source": "https://pixabay.com/music/adventure-battle-battle-music-491417/",
     "license": "Pixabay",
-    "author": ""
+    "author": "paulyudin"
   },
   {
     "file": "audio/inn/victory.webm",
@@ -475,9 +481,9 @@
   },
   {
     "file": "audio/mountains/combat.webm",
-    "source": "https://pixabay.com/music/main-title-through-the-storm-epic-battle-433953/",
+    "source": "https://pixabay.com/music/adventure-epic-battle-music-347288/",
     "license": "Pixabay",
-    "author": ""
+    "author": "tunetank"
   },
   {
     "file": "audio/mountains/victory.webm",
@@ -499,9 +505,9 @@
   },
   {
     "file": "audio/graveyard/combat.webm",
-    "source": "https://pixabay.com/music/build-up-scenes-epic-battle-114919/",
+    "source": "https://pixabay.com/music/adventure-dramatic-orchestral-combat-music-loop-382814/",
     "license": "Pixabay",
-    "author": ""
+    "author": "Cyberwave Orchestra"
   },
   {
     "file": "audio/graveyard/victory.webm",
@@ -547,9 +553,9 @@
   },
   {
     "file": "audio/lab/combat.webm",
-    "source": "https://pixabay.com/music/chase-scene-intense-cyberpunk-techno-music-348920/",
+    "source": "https://pixabay.com/music/beats-action-522444/",
     "license": "Pixabay",
-    "author": ""
+    "author": "the_mountain"
   },
   {
     "file": "audio/lab/victory.webm",
@@ -559,9 +565,9 @@
   },
   {
     "file": "audio/haunted/combat.webm",
-    "source": "https://pixabay.com/music/horror-scene-scary-creepy-horror-music-430823/",
+    "source": "https://pixabay.com/music/adventure-action-466246/",
     "license": "Pixabay",
-    "author": ""
+    "author": "nastelbom"
   },
   {
     "file": "audio/haunted/victory.webm",
@@ -571,9 +577,9 @@
   },
   {
     "file": "audio/asylum/combat.webm",
-    "source": "https://pixabay.com/music/horror-scene-scary-creepy-horror-music-430823/",
+    "source": "https://pixabay.com/music/adventure-action-action-music-473266/",
     "license": "Pixabay",
-    "author": ""
+    "author": "nastelbom"
   },
   {
     "file": "audio/asylum/victory.webm",
@@ -595,9 +601,9 @@
   },
   {
     "file": "audio/deepspace/combat.webm",
-    "source": "https://pixabay.com/music/build-up-scenes-dark-sci-fi-cyberpunk-112399/",
+    "source": "https://pixabay.com/music/adventure-epic-epic-music-523979/",
     "license": "Pixabay",
-    "author": ""
+    "author": "solarflex"
   },
   {
     "file": "audio/deepspace/victory.webm",
@@ -607,9 +613,9 @@
   },
   {
     "file": "audio/station/combat.webm",
-    "source": "https://pixabay.com/music/chase-scene-intense-cyberpunk-techno-music-348920/",
+    "source": "https://pixabay.com/music/adventure-epic-cinematic-battle-music-414662/",
     "license": "Pixabay",
-    "author": ""
+    "author": "tunetank"
   },
   {
     "file": "audio/station/victory.webm",
@@ -619,9 +625,9 @@
   },
   {
     "file": "audio/alien/combat.webm",
-    "source": "https://pixabay.com/music/build-up-scenes-dark-sci-fi-cyberpunk-112399/",
+    "source": "https://pixabay.com/music/build-up-scenes-combat-epic-425365/",
     "license": "Pixabay",
-    "author": ""
+    "author": "inono777"
   },
   {
     "file": "audio/alien/victory.webm",

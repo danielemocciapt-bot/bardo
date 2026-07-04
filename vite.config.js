@@ -18,7 +18,7 @@ export default defineConfig({
             urlPattern: ({ url }) => url.pathname.includes('/audio/'),
             handler: 'CacheFirst',
             options: {
-              cacheName: 'bardo-audio-v3', // bump: refetch (normalizzazione loudness + nuovo suono allarme lab)
+              cacheName: 'bardo-audio-v4', // bump: refetch (nuove musiche combat + battito/urlo/tortora)
               rangeRequests: true,
               cacheableResponse: { statuses: [0, 200, 206] },
               expiration: { maxEntries: 300, maxAgeSeconds: 60 * 60 * 24 * 60 }
@@ -27,6 +27,7 @@ export default defineConfig({
         ]
       },
       manifest: {
+        id: '/bardo/',
         name: 'Bardo',
         short_name: 'Bardo',
         description: 'Colonne sonore per giochi di ruolo',
@@ -36,8 +37,9 @@ export default defineConfig({
         display: 'standalone',
         orientation: 'portrait',
         icons: [
-          { src: 'icons/icon-192.png', sizes: '192x192', type: 'image/png' },
-          { src: 'icons/icon-512.png', sizes: '512x512', type: 'image/png' }
+          { src: 'icons/icon-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
+          { src: 'icons/icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
+          { src: 'icons/icon-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' }
         ]
       }
     })

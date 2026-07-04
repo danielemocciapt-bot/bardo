@@ -8,8 +8,13 @@
   export let scene;
   export let onBack = () => {};
 
+  // intensità pre-selezionata prima del Play (quando la scena non è ancora attiva)
+  let pending = 'explore';
+
   // questa scena è quella attualmente attiva nel player?
   $: active = $player.scene && $player.scene.id === scene.id;
+  // intensità mostrata nei tab: reale se attiva, altrimenti la pre-selezione
+  $: shownIntensity = active ? $player.intensity : pending;
   // master e "schermo acceso" sono globali/persistiti (sempre dallo store);
   // playing/intensity/layers sono per-scena (solo se attiva)
   $: shown = {
@@ -30,11 +35,11 @@
 <NowPlaying name={scene.name} image={scene.image ?? ''} emoji={scene.emoji ?? ''} />
 
 {#if scene.music.combat.length > 0}
-  <IntensityTabs value={shown.intensity} onChange={(l) => { if (active) player.setIntensity(l); }} />
+  <IntensityTabs value={shownIntensity} onChange={(l) => (active ? player.setIntensity(l) : (pending = l))} />
 {/if}
 
 <div style="display:flex;gap:10px;justify-content:center;margin:4px 16px 12px;">
-  <button on:click={() => (active ? player.togglePlay() : player.playScene(scene))}
+  <button on:click={() => (active ? player.togglePlay() : player.playScene(scene, pending))}
     style="flex:1;max-width:170px;border:none;cursor:pointer;background:var(--amber);color:#4a3410;font-weight:700;
            padding:12px 0;border-radius:24px;font-size:15px;box-shadow:0 3px 0 #d9a85a;">
     {active && shown.playing ? '⏸ Pausa' : '▶ Play'}

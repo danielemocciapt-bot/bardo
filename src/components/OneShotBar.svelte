@@ -5,7 +5,7 @@
   export let onPlay = (_id) => {};
 </script>
 
-<div style="display:flex;gap:8px;flex-wrap:wrap;padding:16px;">
+<div style="display:flex;gap:8px;flex-wrap:wrap;padding:16px 16px 92px;">
   {#each scene.oneshots as sfx}
     <button on:click={() => onPlay(sfx.id)}
       style="flex:1;min-width:80px;border:none;cursor:pointer;background:#fff;border-radius:12px;
