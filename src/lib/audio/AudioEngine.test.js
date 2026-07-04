@@ -79,11 +79,12 @@ describe('AudioEngine play / intensità / oneshot', () => {
     expect(engine.intensity).toBe('combat');
   });
 
-  it('playOneShot crea e riproduce un Howl non-loop una sola volta', () => {
+  it('playOneShot riproduce il one-shot precaricato (non-loop)', () => {
+    const howl = engine._oneshots.get('door');
+    expect(howl).toBeTruthy();        // precaricato in loadScene
+    expect(howl.opts.loop).toBe(false);
     engine.playOneShot('door');
-    const created = fake.created.at(-1);
-    expect(created.opts.loop).toBe(false);
-    expect(created.play).toHaveBeenCalled();
+    expect(howl.play).toHaveBeenCalled();
   });
 
   it('setIntensity rimuove il vecchio layer musicale (no doppia traccia su replay)', () => {
@@ -112,11 +113,14 @@ describe('AudioEngine play / intensità / oneshot', () => {
     expect(engine._layerHowl('crowd').opts.html5).toBe(false);
   });
 
-  it('playOneShot fa unload del precedente stesso id', () => {
+  it('playOneShot ri-tappato riparte da capo (stop+play), senza ricreare il Howl', () => {
+    const howl = engine._oneshots.get('door');
+    const before = fake.created.length;
     engine.playOneShot('door');
-    const first = fake.created.at(-1);
     engine.playOneShot('door');
-    expect(first.unload).toHaveBeenCalled();
+    expect(howl.stop).toHaveBeenCalled();
+    expect(howl.play).toHaveBeenCalledTimes(2);
+    expect(fake.created.length).toBe(before); // nessun nuovo Howl creato
   });
 
   it('setIntensity mentre NON in riproduzione non avvia la musica', () => {

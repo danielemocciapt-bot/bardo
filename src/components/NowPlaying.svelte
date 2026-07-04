@@ -1,6 +1,7 @@
 <script>
   export let name = '';
   export let image = '';
+  export let emoji = '';
   let imgOk = !!image;
 </script>
 
@@ -9,6 +10,9 @@
   {#if image && imgOk}
     <img src={image} alt="" on:error={() => (imgOk = false)}
       style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+  {:else if emoji}
+    <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+                 font-size:56px;filter:drop-shadow(0 2px 5px #00000055);" aria-hidden="true">{emoji}</span>
   {/if}
   <div style="position:absolute;inset:0;background:linear-gradient(to top,#000000aa,transparent 60%);"></div>
   <div style="position:relative;padding:14px 16px;">

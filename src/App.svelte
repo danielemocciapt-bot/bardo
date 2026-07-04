@@ -15,7 +15,7 @@
 
 <InstrumentsBg />
 
-{#if $route.view === 'game'}
+{#if $route.view === 'game' && resolve($route.sceneId)}
   {#key $route.sceneId}
     <GameScreen scene={resolve($route.sceneId)} onBack={() => route.home()} />
   {/key}

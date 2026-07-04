@@ -10,8 +10,15 @@
 
   // questa scena è quella attualmente attiva nel player?
   $: active = $player.scene && $player.scene.id === scene.id;
-  // stato mostrato: reale se attiva, altrimenti default
-  $: shown = active ? $player : { playing: false, master: 1, intensity: 'explore', layers: {}, keepAwake: false };
+  // master e "schermo acceso" sono globali/persistiti (sempre dallo store);
+  // playing/intensity/layers sono per-scena (solo se attiva)
+  $: shown = {
+    master: $player.master,
+    keepAwake: $player.keepAwake,
+    playing: active ? $player.playing : false,
+    intensity: active ? $player.intensity : 'explore',
+    layers: active ? $player.layers : {}
+  };
 </script>
 
 <div style="padding:10px 16px 0;">
@@ -20,7 +27,7 @@
            padding:8px 14px;border-radius:20px;font-size:13px;font-weight:600;">← Home</button>
 </div>
 
-<NowPlaying name={scene.name} image={scene.image ?? ''} />
+<NowPlaying name={scene.name} image={scene.image ?? ''} emoji={scene.emoji ?? ''} />
 
 {#if scene.music.combat.length > 0}
   <IntensityTabs value={shown.intensity} onChange={(l) => { if (active) player.setIntensity(l); }} />

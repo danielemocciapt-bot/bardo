@@ -7,8 +7,24 @@ import { writable } from 'svelte/store';
 export function createRoute(deps = {}) {
   const history = deps.history ?? (typeof window !== 'undefined' ? window.history : null);
   const target = deps.target ?? (typeof window !== 'undefined' ? window : null);
+  const location = deps.location ?? (typeof window !== 'undefined' ? window.location : null);
 
-  const { subscribe, set } = writable({ view: 'home' });
+  // stato iniziale dall'URL (deep-link / reload su una scena)
+  const parseHash = (h) => {
+    const m = /^#\/scene\/(.+)$/.exec(h || '');
+    if (m) return { view: 'game', sceneId: decodeURIComponent(m[1]) };
+    if (h === '#/builder') return { view: 'builder' };
+    if (h === '#/credits') return { view: 'credits' };
+    return { view: 'home' };
+  };
+  const initial = parseHash(location?.hash);
+  const { subscribe, set } = writable(initial);
+  // semina lo stato history così il tasto Indietro funziona partendo da un deep-link
+  if (history && initial.view !== 'home') {
+    const st = initial.view === 'game' ? { sceneId: initial.sceneId }
+      : initial.view === 'builder' ? { builder: true } : { credits: true };
+    history.replaceState(st, '', location?.hash);
+  }
 
   function open(sceneId) {
     set({ view: 'game', sceneId });

@@ -13,6 +13,9 @@
     {#if scene.image && imgOk}
       <img src={scene.image} alt={scene.name} on:error={() => (imgOk = false)}
         style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+    {:else if scene.emoji}
+      <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+                   font-size:44px;filter:drop-shadow(0 2px 4px #00000055);" aria-hidden="true">{scene.emoji}</span>
     {/if}
     <div style="position:absolute;inset:0;background:linear-gradient(to top,#00000099,transparent 55%);"></div>
     <span style="position:absolute;left:10px;bottom:8px;color:#fff;font-weight:700;

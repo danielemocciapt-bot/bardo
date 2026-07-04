@@ -41,6 +41,11 @@ export class AudioEngine {
     const musicRef = scene.music.explore[0];
     this._musicLayerId = musicRef.id;
     this._layers.set(musicRef.id, { howl: this._makeHowl(musicRef, { volume: this._master }), volume: 1 });
+
+    // precarica gli one-shot: il primo tap parte subito, senza latenza di decode
+    for (const ref of scene.oneshots) {
+      this._oneshots.set(ref.id, this._factory({ src: ref.src, loop: false, html5: false, preload: true, volume: this._master }));
+    }
   }
 
   _layerHowl(id) {
@@ -133,12 +138,16 @@ export class AudioEngine {
   /** @param {string} sfxId */
   playOneShot(sfxId) {
     if (!this._scene) return;
-    const ref = this._scene.oneshots.find((s) => s.id === sfxId);
-    if (!ref) return;
-    const prev = this._oneshots.get(sfxId);
-    if (prev) prev.unload();
-    const howl = this._factory({ src: ref.src, loop: false, html5: false, volume: this._master });
-    this._oneshots.set(sfxId, howl);
+    let howl = this._oneshots.get(sfxId); // di norma già precaricato in loadScene
+    if (!howl) {
+      const ref = this._scene.oneshots.find((s) => s.id === sfxId);
+      if (!ref) return;
+      howl = this._factory({ src: ref.src, loop: false, html5: false, volume: this._master });
+      this._oneshots.set(sfxId, howl);
+    } else {
+      howl.stop();               // re-tap: riparte da capo
+      howl.volume(this._master); // allinea al master corrente
+    }
     howl.play();
   }
 }

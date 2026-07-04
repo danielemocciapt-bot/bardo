@@ -23,8 +23,11 @@
   const ambientOptions = dedupBySrc(scenes.flatMap((s) => s.ambient.map((a) => ({ ref: a, label: `${a.name} (${s.name})` }))));
   const oneshotOptions = dedupBySrc(scenes.flatMap((s) => s.oneshots.map((o) => ({ ref: o, label: `${o.name} (${s.name})` }))));
 
+  const emojis = ['🏰','🌲','🐉','⚔️','💀','🔥','🌊','⛵','🪐','👾','🕯️','🎲','🗡️','🏔️','👻','📜'];
+
   let name = '';
   let cover = palette[0];
+  let emoji = '';
   let musicId = musicOptions[0]?.ref.id ?? '';
   let ambientIds = new Set();
   let oneshotIds = new Set();
@@ -41,7 +44,7 @@
     const musicRef = musicOptions.find((o) => o.ref.id === musicId).ref;
     const ambientRefs = ambientOptions.filter((o) => ambientIds.has(o.ref.id)).map((o) => o.ref);
     const oneshotRefs = oneshotOptions.filter((o) => oneshotIds.has(o.ref.id)).map((o) => o.ref);
-    userScenes.add(buildUserScene({ name: name.trim(), cover, musicRef, ambientRefs, oneshotRefs }));
+    userScenes.add(buildUserScene({ name: name.trim(), cover, emoji, musicRef, ambientRefs, oneshotRefs }));
     onDone();
   }
 </script>
@@ -61,6 +64,16 @@
     {#each palette as g}
       <button on:click={() => (cover = g)} aria-label="colore"
         style="width:34px;height:34px;border-radius:8px;cursor:pointer;background:{g};border:{cover === g ? '3px solid var(--amber-deep)' : '1px solid #d3b985'};"></button>
+    {/each}
+  </div>
+
+  <div style="font-size:12px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Icona (opzionale)</div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;">
+    {#each emojis as e}
+      <button on:click={() => (emoji = emoji === e ? '' : e)} aria-label="icona {e}"
+        style="width:38px;height:38px;font-size:20px;line-height:1;border-radius:8px;cursor:pointer;
+               background:{emoji === e ? 'var(--amber)' : '#ffffff88'};
+               border:{emoji === e ? '2px solid var(--amber-deep)' : '1px solid #d3b985'};">{e}</button>
     {/each}
   </div>
 
