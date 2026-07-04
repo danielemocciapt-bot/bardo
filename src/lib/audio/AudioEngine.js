@@ -33,6 +33,7 @@ export class AudioEngine {
     this.destroy(); // ferma e SCARICA la scena precedente (evita Howl orfani in memoria)
     this._scene = scene;
     this._intensity = 'explore';
+    this._master = 1; // ogni scena riparte da master pieno (allineato allo store mixer)
 
     for (const ref of scene.ambient) {
       this._layers.set(ref.id, { howl: this._makeHowl(ref, { volume: 0, html5: false }), volume: 0 });

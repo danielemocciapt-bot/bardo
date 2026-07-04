@@ -14,9 +14,14 @@
     'linear-gradient(160deg,#e79a9a,#b95a5a)'
   ];
 
+  // molte scene riusano lo stesso file audio: mostra ogni suono una sola volta (dedup per src)
+  const dedupBySrc = (opts) => {
+    const seen = new Set();
+    return opts.filter((o) => { const k = o.ref.src.join('|'); return seen.has(k) ? false : seen.add(k); });
+  };
   const musicOptions = scenes.map((s) => ({ ref: s.music.explore[0], label: `${s.music.explore[0].name} (${s.name})` }));
-  const ambientOptions = scenes.flatMap((s) => s.ambient.map((a) => ({ ref: a, label: `${a.name} (${s.name})` })));
-  const oneshotOptions = scenes.flatMap((s) => s.oneshots.map((o) => ({ ref: o, label: `${o.name} (${s.name})` })));
+  const ambientOptions = dedupBySrc(scenes.flatMap((s) => s.ambient.map((a) => ({ ref: a, label: `${a.name} (${s.name})` }))));
+  const oneshotOptions = dedupBySrc(scenes.flatMap((s) => s.oneshots.map((o) => ({ ref: o, label: `${o.name} (${s.name})` }))));
 
   let name = '';
   let cover = palette[0];
