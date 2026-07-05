@@ -18,7 +18,7 @@ export default defineConfig({
             urlPattern: ({ url }) => url.pathname.includes('/audio/'),
             handler: 'CacheFirst',
             options: {
-              cacheName: 'bardo-audio-v4', // bump: refetch (nuove musiche combat + battito/urlo/tortora)
+              cacheName: 'bardo-audio-v5', // bump: refetch (loop seamless + victory jingle 5s)
               rangeRequests: true,
               cacheableResponse: { statuses: [0, 200, 206] },
               expiration: { maxEntries: 300, maxAgeSeconds: 60 * 60 * 24 * 60 }
@@ -28,8 +28,8 @@ export default defineConfig({
       },
       manifest: {
         id: '/bardo/',
-        name: 'Bardo',
-        short_name: 'Bardo',
+        name: 'Bonfire Melody',
+        short_name: 'Bonfire',
         description: 'Colonne sonore per giochi di ruolo',
         lang: 'it',
         theme_color: '#ecb14c',

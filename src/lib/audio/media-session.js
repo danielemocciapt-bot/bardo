@@ -8,13 +8,15 @@ export function createMediaSession(nav = typeof navigator !== 'undefined' ? navi
 
   function setScene(scene) {
     if (!ms || typeof MediaMetadata === 'undefined') return;
-    ms.metadata = new MediaMetadata({
-      title: scene.name,
-      artist: 'Bardo',
-      artwork: typeof scene.cover === 'string' && scene.cover.startsWith('/')
-        ? [{ src: scene.cover, sizes: '512x512', type: 'image/png' }]
-        : []
-    });
+    const B = (import.meta.env && import.meta.env.BASE_URL) || '/';
+    // artwork reale: illustrazione scena (se presente) + icona app come fallback.
+    // Serve anche a far comparire la notifica media -> l'OS tiene l'audio a schermo spento.
+    const artwork = [];
+    if (typeof scene.image === 'string' && scene.image) {
+      artwork.push({ src: scene.image, sizes: '512x512', type: 'image/webp' });
+    }
+    artwork.push({ src: `${B}icons/icon-512.png`, sizes: '512x512', type: 'image/png' });
+    ms.metadata = new MediaMetadata({ title: scene.name, artist: 'Bonfire Melody', artwork });
   }
 
   function setPlaybackState(state) {

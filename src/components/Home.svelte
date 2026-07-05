@@ -13,7 +13,7 @@
 </script>
 
 <header style="padding:16px 16px 6px;display:flex;align-items:center;gap:8px;">
-  <div style="font-family:Georgia,serif;font-size:22px;font-weight:700;color:#7a5a2e;">⚜ Bardo</div>
+  <div style="font-family:Georgia,serif;font-size:22px;font-weight:700;color:#7a5a2e;">🔥 Bonfire Melody</div>
 </header>
 
 {#each categories as cat}

@@ -16,7 +16,7 @@ export const scenes = [
     music: {
       explore: [{ id: 'tavern-explore', name: 'Calma', src: fmt('tavern', 'explore'), loop: true }],
       combat:  [{ id: 'tavern-combat',  name: 'Rissa', src: fmt('tavern', 'combat'),  loop: true }],
-      victory: [{ id: 'tavern-victory', name: 'Brindisi', src: fmt('tavern', 'victory'), loop: true }]
+      victory: [{ id: 'tavern-victory', name: 'Brindisi', src: fmt('tavern', 'victory'), loop: false }]
     },
     ambient: [
       { id: 'crowd', name: 'Brusio', src: fmt('tavern', 'crowd'), loop: true },
@@ -41,7 +41,7 @@ export const scenes = [
     music: {
       explore: [{ id: 'forest-explore', name: 'Sentiero', src: fmt('forest', 'explore'), loop: true }],
       combat:  [{ id: 'forest-combat',  name: 'Agguato',  src: fmt('forest', 'combat'),  loop: true }],
-      victory: [{ id: 'forest-victory', name: 'Radura',   src: fmt('forest', 'victory'), loop: true }]
+      victory: [{ id: 'forest-victory', name: 'Radura',   src: fmt('forest', 'victory'), loop: false }]
     },
     ambient: [
       { id: 'wind', name: 'Vento', src: fmt('forest', 'wind'), loop: true },
@@ -66,7 +66,7 @@ export const scenes = [
     music: {
       explore: [{ id: 'city-explore', name: 'Vie', src: fmt('city', 'explore'), loop: true }],
       combat:  [{ id: 'city-combat',  name: 'Guardie', src: fmt('city', 'combat'), loop: true }],
-      victory: [{ id: 'city-victory', name: 'Corte', src: fmt('city', 'victory'), loop: true }]
+      victory: [{ id: 'city-victory', name: 'Corte', src: fmt('city', 'victory'), loop: false }]
     },
     ambient: [
       { id: 'market', name: 'Mercato', src: fmt('city', 'market'), loop: true },
@@ -91,7 +91,7 @@ export const scenes = [
     music: {
       explore: [{ id: 'dungeon-explore', name: 'Cripta', src: fmt('dungeon', 'explore'), loop: true }],
       combat:  [{ id: 'dungeon-combat',  name: 'Orrore', src: fmt('dungeon', 'combat'), loop: true }],
-      victory: [{ id: 'dungeon-victory', name: 'Tesoro', src: fmt('dungeon', 'victory'), loop: true }]
+      victory: [{ id: 'dungeon-victory', name: 'Tesoro', src: fmt('dungeon', 'victory'), loop: false }]
     },
     ambient: [
       { id: 'drip', name: 'Gocce', src: fmt('dungeon', 'drip'), loop: true },
@@ -113,7 +113,7 @@ export const scenes = [
     cover: 'linear-gradient(160deg,#d98a6a,#8a3a2a)',
     image: img('battle'),
     category: 'fantasy',
-    music: { explore: [{ id: 'battle-explore', name: 'Fronte', src: fmt('battle', 'music'), loop: true }], combat: [{ id: 'battle-combat', name: 'Combattimento', src: fmt('battle', 'combat'), loop: true }], victory: [{ id: 'battle-victory', name: 'Vittoria', src: fmt('battle', 'victory'), loop: true }] },
+    music: { explore: [{ id: 'battle-explore', name: 'Fronte', src: fmt('battle', 'music'), loop: true }], combat: [{ id: 'battle-combat', name: 'Combattimento', src: fmt('battle', 'combat'), loop: true }], victory: [{ id: 'battle-victory', name: 'Vittoria', src: fmt('battle', 'victory'), loop: false }] },
     ambient: [
       { id: 'warcries', name: 'Mischia', src: fmt('battle', 'warcries'), loop: true },
       { id: 'battle-crowd', name: 'Esercito', src: fmt('tavern', 'crowd'), loop: true },
@@ -134,7 +134,7 @@ export const scenes = [
     cover: 'linear-gradient(160deg,#e8c48a,#a8763e)',
     image: img('inn'),
     category: 'fantasy',
-    music: { explore: [{ id: 'inn-explore', name: 'Focolare', src: fmt('inn', 'music'), loop: true }], combat: [{ id: 'inn-combat', name: 'Combattimento', src: fmt('inn', 'combat'), loop: true }], victory: [{ id: 'inn-victory', name: 'Vittoria', src: fmt('inn', 'victory'), loop: true }] },
+    music: { explore: [{ id: 'inn-explore', name: 'Focolare', src: fmt('inn', 'music'), loop: true }], combat: [{ id: 'inn-combat', name: 'Combattimento', src: fmt('inn', 'combat'), loop: true }], victory: [{ id: 'inn-victory', name: 'Vittoria', src: fmt('inn', 'victory'), loop: false }] },
     ambient: [
       { id: 'hearth', name: 'Camino', src: fmt('inn', 'hearth'), loop: true },
       { id: 'inn-crowd', name: 'Avventori', src: fmt('tavern', 'crowd'), loop: true },
@@ -155,7 +155,7 @@ export const scenes = [
     cover: 'linear-gradient(160deg,#8ec5d6,#3a7a9a)',
     image: img('harbor'),
     category: 'fantasy',
-    music: { explore: [{ id: 'harbor-explore', name: 'Marea', src: fmt('harbor', 'music'), loop: true }], combat: [{ id: 'harbor-combat', name: 'Combattimento', src: fmt('harbor', 'combat'), loop: true }], victory: [{ id: 'harbor-victory', name: 'Vittoria', src: fmt('harbor', 'victory'), loop: true }] },
+    music: { explore: [{ id: 'harbor-explore', name: 'Marea', src: fmt('harbor', 'music'), loop: true }], combat: [{ id: 'harbor-combat', name: 'Combattimento', src: fmt('harbor', 'combat'), loop: true }], victory: [{ id: 'harbor-victory', name: 'Vittoria', src: fmt('harbor', 'victory'), loop: false }] },
     ambient: [
       { id: 'waves', name: 'Onde', src: fmt('harbor', 'waves'), loop: true },
       { id: 'harbor-crowd', name: 'Banchina', src: fmt('tavern', 'crowd'), loop: true },
@@ -176,7 +176,7 @@ export const scenes = [
     cover: 'linear-gradient(160deg,#cdbfa0,#7a6a4a)',
     image: img('temple'),
     category: 'fantasy',
-    music: { explore: [{ id: 'temple-explore', name: 'Sacrario', src: fmt('temple', 'music'), loop: true }], combat: [{ id: 'temple-combat', name: 'Combattimento', src: fmt('temple', 'combat'), loop: true }], victory: [{ id: 'temple-victory', name: 'Vittoria', src: fmt('temple', 'victory'), loop: true }] },
+    music: { explore: [{ id: 'temple-explore', name: 'Sacrario', src: fmt('temple', 'music'), loop: true }], combat: [{ id: 'temple-combat', name: 'Combattimento', src: fmt('temple', 'combat'), loop: true }], victory: [{ id: 'temple-victory', name: 'Vittoria', src: fmt('temple', 'victory'), loop: false }] },
     ambient: [
       { id: 'chant', name: 'Eco', src: fmt('temple', 'chant'), loop: true },
       { id: 'temple-echo', name: 'Riverbero', src: fmt('cave', 'echo'), loop: true },
@@ -197,7 +197,7 @@ export const scenes = [
     cover: 'linear-gradient(160deg,#cfe0ea,#7a90a8)',
     image: img('mountains'),
     category: 'fantasy',
-    music: { explore: [{ id: 'mountains-explore', name: 'Vetta', src: fmt('mountains', 'music'), loop: true }], combat: [{ id: 'mountains-combat', name: 'Combattimento', src: fmt('mountains', 'combat'), loop: true }], victory: [{ id: 'mountains-victory', name: 'Vittoria', src: fmt('mountains', 'victory'), loop: true }] },
+    music: { explore: [{ id: 'mountains-explore', name: 'Vetta', src: fmt('mountains', 'music'), loop: true }], combat: [{ id: 'mountains-combat', name: 'Combattimento', src: fmt('mountains', 'combat'), loop: true }], victory: [{ id: 'mountains-victory', name: 'Vittoria', src: fmt('mountains', 'victory'), loop: false }] },
     ambient: [
       { id: 'gale', name: 'Bufera', src: fmt('mountains', 'gale'), loop: true },
       { id: 'mountains-wind', name: 'Vento', src: fmt('forest', 'wind'), loop: true },
@@ -218,7 +218,7 @@ export const scenes = [
     cover: 'linear-gradient(160deg,#8a9a6a,#3a4a2a)',
     image: img('swamp'),
     category: 'fantasy',
-    music: { explore: [{ id: 'swamp-explore', name: 'Acquitrino', src: fmt('swamp', 'music'), loop: true }], combat: [{ id: 'swamp-combat', name: 'Combattimento', src: fmt('swamp', 'combat'), loop: true }], victory: [{ id: 'swamp-victory', name: 'Vittoria', src: fmt('swamp', 'victory'), loop: true }] },
+    music: { explore: [{ id: 'swamp-explore', name: 'Acquitrino', src: fmt('swamp', 'music'), loop: true }], combat: [{ id: 'swamp-combat', name: 'Combattimento', src: fmt('swamp', 'combat'), loop: true }], victory: [{ id: 'swamp-victory', name: 'Vittoria', src: fmt('swamp', 'victory'), loop: false }] },
     ambient: [
       { id: 'frogs', name: 'Rane', src: fmt('swamp', 'frogs'), loop: true },
       { id: 'swamp-wind', name: 'Canneto', src: fmt('forest', 'wind'), loop: true },
@@ -239,7 +239,7 @@ export const scenes = [
     cover: 'linear-gradient(160deg,#9a9aa8,#4a4a58)',
     image: img('graveyard'),
     category: 'fantasy',
-    music: { explore: [{ id: 'graveyard-explore', name: 'Requiem', src: fmt('graveyard', 'music'), loop: true }], combat: [{ id: 'graveyard-combat', name: 'Combattimento', src: fmt('graveyard', 'combat'), loop: true }], victory: [{ id: 'graveyard-victory', name: 'Vittoria', src: fmt('graveyard', 'victory'), loop: true }] },
+    music: { explore: [{ id: 'graveyard-explore', name: 'Requiem', src: fmt('graveyard', 'music'), loop: true }], combat: [{ id: 'graveyard-combat', name: 'Combattimento', src: fmt('graveyard', 'combat'), loop: true }], victory: [{ id: 'graveyard-victory', name: 'Vittoria', src: fmt('graveyard', 'victory'), loop: false }] },
     ambient: [
       { id: 'moan', name: 'Lamento', src: fmt('graveyard', 'moan'), loop: true },
       { id: 'graveyard-wind', name: 'Vento', src: fmt('forest', 'wind'), loop: true },
@@ -260,7 +260,7 @@ export const scenes = [
     cover: 'linear-gradient(160deg,#8a7a6a,#3a2f28)',
     image: img('cave'),
     category: 'fantasy',
-    music: { explore: [{ id: 'cave-explore', name: 'Cunicolo', src: fmt('cave', 'music'), loop: true }], combat: [{ id: 'cave-combat', name: 'Combattimento', src: fmt('cave', 'combat'), loop: true }], victory: [{ id: 'cave-victory', name: 'Vittoria', src: fmt('cave', 'victory'), loop: true }] },
+    music: { explore: [{ id: 'cave-explore', name: 'Cunicolo', src: fmt('cave', 'music'), loop: true }], combat: [{ id: 'cave-combat', name: 'Combattimento', src: fmt('cave', 'combat'), loop: true }], victory: [{ id: 'cave-victory', name: 'Vittoria', src: fmt('cave', 'victory'), loop: false }] },
     ambient: [
       { id: 'echo', name: 'Eco', src: fmt('cave', 'echo'), loop: true },
       { id: 'cave-drip', name: 'Gocce', src: fmt('dungeon', 'drip'), loop: true },
@@ -278,7 +278,7 @@ export const scenes = [
   {
     id: 'starship', name: 'Nave stellare', category: 'scifi',
     cover: 'linear-gradient(160deg,#4a90c0,#12314a)', image: img('starship'),
-    music: { explore: [{ id: 'starship-explore', name: 'Ponte', src: fmt('starship', 'music'), loop: true }], combat: [{ id: 'starship-combat', name: 'Combattimento', src: fmt('starship', 'combat'), loop: true }], victory: [{ id: 'starship-victory', name: 'Vittoria', src: fmt('starship', 'victory'), loop: true }] },
+    music: { explore: [{ id: 'starship-explore', name: 'Ponte', src: fmt('starship', 'music'), loop: true }], combat: [{ id: 'starship-combat', name: 'Combattimento', src: fmt('starship', 'combat'), loop: true }], victory: [{ id: 'starship-victory', name: 'Vittoria', src: fmt('starship', 'victory'), loop: false }] },
     ambient: [
       { id: 'enginehum', name: 'Motori', src: fmt('starship', 'enginehum'), loop: true },
       { id: 'starship-machinebeep', name: 'Console', src: fmt('lab', 'machinebeep'), loop: true },
@@ -296,7 +296,7 @@ export const scenes = [
   {
     id: 'cyber', name: 'Città cyberpunk', category: 'scifi',
     cover: 'linear-gradient(160deg,#d05aa8,#3a1a5a)', image: img('cyber'),
-    music: { explore: [{ id: 'cyber-explore', name: 'Neon', src: fmt('cyber', 'music'), loop: true }], combat: [{ id: 'cyber-combat', name: 'Combattimento', src: fmt('cyber', 'combat'), loop: true }], victory: [{ id: 'cyber-victory', name: 'Vittoria', src: fmt('cyber', 'victory'), loop: true }] },
+    music: { explore: [{ id: 'cyber-explore', name: 'Neon', src: fmt('cyber', 'music'), loop: true }], combat: [{ id: 'cyber-combat', name: 'Combattimento', src: fmt('cyber', 'combat'), loop: true }], victory: [{ id: 'cyber-victory', name: 'Vittoria', src: fmt('cyber', 'victory'), loop: false }] },
     ambient: [
       { id: 'neonrain', name: 'Pioggia neon', src: fmt('cyber', 'neonrain'), loop: true },
       { id: 'cyber-crowd', name: 'Folla', src: fmt('tavern', 'crowd'), loop: true },
@@ -314,7 +314,7 @@ export const scenes = [
   {
     id: 'lab', name: 'Laboratorio', category: 'scifi',
     cover: 'linear-gradient(160deg,#7ab0d0,#25546e)', image: img('lab'),
-    music: { explore: [{ id: 'lab-explore', name: 'Reparto', src: fmt('lab', 'music'), loop: true }], combat: [{ id: 'lab-combat', name: 'Combattimento', src: fmt('lab', 'combat'), loop: true }], victory: [{ id: 'lab-victory', name: 'Vittoria', src: fmt('lab', 'victory'), loop: true }] },
+    music: { explore: [{ id: 'lab-explore', name: 'Reparto', src: fmt('lab', 'music'), loop: true }], combat: [{ id: 'lab-combat', name: 'Combattimento', src: fmt('lab', 'combat'), loop: true }], victory: [{ id: 'lab-victory', name: 'Vittoria', src: fmt('lab', 'victory'), loop: false }] },
     ambient: [
       { id: 'machinebeep', name: 'Macchinari', src: fmt('lab', 'machinebeep'), loop: true },
       { id: 'lab-enginehum', name: 'Reattore', src: fmt('starship', 'enginehum'), loop: true },
@@ -332,7 +332,7 @@ export const scenes = [
   {
     id: 'haunted', name: 'Villa infestata', category: 'horror',
     cover: 'linear-gradient(160deg,#6a5a7a,#2a1f38)', image: img('haunted'),
-    music: { explore: [{ id: 'haunted-explore', name: 'Presenza', src: fmt('haunted', 'music'), loop: true }], combat: [{ id: 'haunted-combat', name: 'Combattimento', src: fmt('haunted', 'combat'), loop: true }], victory: [{ id: 'haunted-victory', name: 'Vittoria', src: fmt('haunted', 'victory'), loop: true }] },
+    music: { explore: [{ id: 'haunted-explore', name: 'Presenza', src: fmt('haunted', 'music'), loop: true }], combat: [{ id: 'haunted-combat', name: 'Combattimento', src: fmt('haunted', 'combat'), loop: true }], victory: [{ id: 'haunted-victory', name: 'Vittoria', src: fmt('haunted', 'victory'), loop: false }] },
     ambient: [
       { id: 'creaks', name: 'Scricchiolii', src: fmt('haunted', 'creaks'), loop: true },
       { id: 'haunted-moan', name: 'Lamenti', src: fmt('graveyard', 'moan'), loop: true },
@@ -350,7 +350,7 @@ export const scenes = [
   {
     id: 'asylum', name: 'Manicomio', category: 'horror',
     cover: 'linear-gradient(160deg,#8a9a90,#2e3a34)', image: img('asylum'),
-    music: { explore: [{ id: 'asylum-explore', name: 'Corsia', src: fmt('asylum', 'music'), loop: true }], combat: [{ id: 'asylum-combat', name: 'Combattimento', src: fmt('asylum', 'combat'), loop: true }], victory: [{ id: 'asylum-victory', name: 'Vittoria', src: fmt('asylum', 'victory'), loop: true }] },
+    music: { explore: [{ id: 'asylum-explore', name: 'Corsia', src: fmt('asylum', 'music'), loop: true }], combat: [{ id: 'asylum-combat', name: 'Combattimento', src: fmt('asylum', 'combat'), loop: true }], victory: [{ id: 'asylum-victory', name: 'Vittoria', src: fmt('asylum', 'victory'), loop: false }] },
     ambient: [
       { id: 'asylumamb', name: 'Sussurri', src: fmt('asylum', 'asylumamb'), loop: true },
       { id: 'asylum-creaks', name: 'Scricchiolii', src: fmt('haunted', 'creaks'), loop: true },
@@ -368,7 +368,7 @@ export const scenes = [
   {
     id: 'ritual', name: 'Rito oscuro', category: 'horror',
     cover: 'linear-gradient(160deg,#a0403a,#3a1015)', image: img('ritual'),
-    music: { explore: [{ id: 'ritual-explore', name: 'Rituale', src: fmt('ritual', 'music'), loop: true }], combat: [{ id: 'ritual-combat', name: 'Combattimento', src: fmt('ritual', 'combat'), loop: true }], victory: [{ id: 'ritual-victory', name: 'Vittoria', src: fmt('ritual', 'victory'), loop: true }] },
+    music: { explore: [{ id: 'ritual-explore', name: 'Rituale', src: fmt('ritual', 'music'), loop: true }], combat: [{ id: 'ritual-combat', name: 'Combattimento', src: fmt('ritual', 'combat'), loop: true }], victory: [{ id: 'ritual-victory', name: 'Vittoria', src: fmt('ritual', 'victory'), loop: false }] },
     ambient: [
       { id: 'drone', name: 'Ronzio', src: fmt('ritual', 'drone'), loop: true },
       { id: 'ritual-chant', name: 'Cantilena', src: fmt('temple', 'chant'), loop: true },
@@ -386,7 +386,7 @@ export const scenes = [
   {
     id: 'deepspace', name: 'Spazio profondo', category: 'space',
     cover: 'linear-gradient(160deg,#4a5aa8,#101030)', image: img('deepspace'),
-    music: { explore: [{ id: 'deepspace-explore', name: 'Vuoto', src: fmt('deepspace', 'music'), loop: true }], combat: [{ id: 'deepspace-combat', name: 'Combattimento', src: fmt('deepspace', 'combat'), loop: true }], victory: [{ id: 'deepspace-victory', name: 'Vittoria', src: fmt('deepspace', 'victory'), loop: true }] },
+    music: { explore: [{ id: 'deepspace-explore', name: 'Vuoto', src: fmt('deepspace', 'music'), loop: true }], combat: [{ id: 'deepspace-combat', name: 'Combattimento', src: fmt('deepspace', 'combat'), loop: true }], victory: [{ id: 'deepspace-victory', name: 'Vittoria', src: fmt('deepspace', 'victory'), loop: false }] },
     ambient: [
       { id: 'cosmicdrone', name: 'Cosmo', src: fmt('deepspace', 'cosmicdrone'), loop: true },
       { id: 'deepspace-stationhum', name: 'Riverbero', src: fmt('station', 'stationhum'), loop: true },
@@ -404,7 +404,7 @@ export const scenes = [
   {
     id: 'station', name: 'Stazione spaziale', category: 'space',
     cover: 'linear-gradient(160deg,#7a90b0,#2a3a55)', image: img('station'),
-    music: { explore: [{ id: 'station-explore', name: 'Orbita', src: fmt('station', 'music'), loop: true }], combat: [{ id: 'station-combat', name: 'Combattimento', src: fmt('station', 'combat'), loop: true }], victory: [{ id: 'station-victory', name: 'Vittoria', src: fmt('station', 'victory'), loop: true }] },
+    music: { explore: [{ id: 'station-explore', name: 'Orbita', src: fmt('station', 'music'), loop: true }], combat: [{ id: 'station-combat', name: 'Combattimento', src: fmt('station', 'combat'), loop: true }], victory: [{ id: 'station-victory', name: 'Vittoria', src: fmt('station', 'victory'), loop: false }] },
     ambient: [
       { id: 'stationhum', name: 'Ronzio', src: fmt('station', 'stationhum'), loop: true },
       { id: 'station-machinebeep', name: 'Strumenti', src: fmt('lab', 'machinebeep'), loop: true },
@@ -422,7 +422,7 @@ export const scenes = [
   {
     id: 'alien', name: 'Pianeta alieno', category: 'space',
     cover: 'linear-gradient(160deg,#8ac07a,#3a2a5a)', image: img('alien'),
-    music: { explore: [{ id: 'alien-explore', name: 'Ignoto', src: fmt('alien', 'music'), loop: true }], combat: [{ id: 'alien-combat', name: 'Combattimento', src: fmt('alien', 'combat'), loop: true }], victory: [{ id: 'alien-victory', name: 'Vittoria', src: fmt('alien', 'victory'), loop: true }] },
+    music: { explore: [{ id: 'alien-explore', name: 'Ignoto', src: fmt('alien', 'music'), loop: true }], combat: [{ id: 'alien-combat', name: 'Combattimento', src: fmt('alien', 'combat'), loop: true }], victory: [{ id: 'alien-victory', name: 'Vittoria', src: fmt('alien', 'victory'), loop: false }] },
     ambient: [
       { id: 'alienwild', name: 'Fauna aliena', src: fmt('alien', 'alienwild'), loop: true },
       { id: 'alien-wind', name: 'Vento alieno', src: fmt('forest', 'wind'), loop: true },

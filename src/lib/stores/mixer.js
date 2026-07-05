@@ -30,6 +30,9 @@ export function createMixer(engine, deps = {}) {
     keepAwake: !!prefs.keepAwake // globale, persistito
   });
 
+  // l'engine avvisa quando l'intensità torna da sola a 'explore' (fine jingle vittoria)
+  if (engine) engine.onIntensity = (level) => update((s) => ({ ...s, intensity: level }));
+
   function load(scene) {
     engine.loadScene(scene);
     _playing = false;

@@ -1,7 +1,11 @@
-import { Howl } from 'howler';
+import { Howl, Howler } from 'howler';
 
 /** @typedef {import('../types.js').Scene} Scene */
 /** @typedef {import('../types.js').AudioRef} AudioRef */
+
+// Non sospendere il contesto audio: altrimenti a schermo spento/in background
+// Howler mette in pausa l'audio dopo un po' di inattività.
+Howler.autoSuspend = false;
 
 const CROSSFADE_MS = 1500;
 
@@ -21,6 +25,8 @@ export class AudioEngine {
     /** @type {'explore'|'combat'|'victory'} */
     this._intensity = 'explore';
     this._playing = false;
+    /** callback quando l'intensità cambia da sola (jingle vittoria -> esplora) */
+    this.onIntensity = deps.onIntensity ?? null;
   }
 
   /** @param {AudioRef} ref */
@@ -100,6 +106,13 @@ export class AudioEngine {
   /** @param {'explore'|'combat'|'victory'} level */
   setIntensity(level) {
     if (!this._scene || level === this._intensity) return;
+    const newRefEarly = this._scene.music[level][0];
+    // Vittoria = jingle una tantum: suona una volta e poi torna a Esplora.
+    // (per le scene custom victory ha loop:true -> usa il percorso normale)
+    if (level === 'victory' && newRefEarly && newRefEarly.loop === false) {
+      this._playVictoryJingle(newRefEarly);
+      return;
+    }
     const oldId = this._musicLayerId;
     const oldLayer = this._layers.get(oldId);
     const newRef = this._scene.music[level][0];
@@ -133,6 +146,41 @@ export class AudioEngine {
 
     this._musicLayerId = newRef.id;
     this._intensity = level;
+  }
+
+  /** Suona il jingle di vittoria una volta, poi torna automaticamente a Esplora. @param {AudioRef} vRef */
+  _playVictoryJingle(vRef) {
+    const oldLayer = this._layers.get(this._musicLayerId);
+    if (oldLayer && oldLayer !== this._layers.get(vRef.id)) {
+      if (this._playing) {
+        oldLayer.howl.fade(this._master * oldLayer.volume, 0, 400);
+        oldLayer.howl.once('fade', () => oldLayer.howl.stop());
+      } else {
+        oldLayer.howl.stop();
+      }
+      this._layers.delete(this._musicLayerId);
+    }
+    let vLayer = this._layers.get(vRef.id);
+    if (!vLayer) { vLayer = { howl: this._makeHowl(vRef, { volume: this._master }), volume: 1 }; this._layers.set(vRef.id, vLayer); }
+    this._musicLayerId = vRef.id;
+    this._intensity = 'victory';
+    vLayer.howl.volume(this._master);
+    vLayer.howl.once('end', () => this._afterVictory(vRef.id));
+    if (this._playing) vLayer.howl.play();
+  }
+
+  /** Fine del jingle: carica e (se in play) avvia la musica di Esplora. @param {string} vId */
+  _afterVictory(vId) {
+    if (this._intensity !== 'victory') return; // l'utente ha già cambiato intensità
+    const v = this._layers.get(vId);
+    if (v) { v.howl.stop(); v.howl.unload(); this._layers.delete(vId); }
+    const eRef = this._scene.music.explore[0];
+    const eLayer = { howl: this._makeHowl(eRef, { volume: this._master }), volume: 1 };
+    this._layers.set(eRef.id, eLayer);
+    this._musicLayerId = eRef.id;
+    this._intensity = 'explore';
+    if (this._playing) eLayer.howl.play();
+    this.onIntensity && this.onIntensity('explore');
   }
 
   /** @param {string} sfxId */
