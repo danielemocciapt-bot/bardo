@@ -18,7 +18,7 @@ export default defineConfig({
             urlPattern: ({ url }) => url.pathname.includes('/audio/'),
             handler: 'CacheFirst',
             options: {
-              cacheName: 'bardo-audio-v7', // bump: refetch (musiche explore ondata 2: scifi/horror/space)
+              cacheName: 'bardo-audio-v8', // bump: refetch (tavern strumentale, loop crossfade 6s, temple lungo)
               rangeRequests: true,
               cacheableResponse: { statuses: [0, 200, 206] },
               expiration: { maxEntries: 300, maxAgeSeconds: 60 * 60 * 24 * 60 }
