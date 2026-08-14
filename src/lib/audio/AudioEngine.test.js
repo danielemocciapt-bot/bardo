@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { AudioEngine } from './AudioEngine.js';
 import { demoScene } from '../data/scenes.js';
 
@@ -187,88 +187,5 @@ describe('AudioEngine play / intensità / oneshot', () => {
     expect(music.unload).toHaveBeenCalled();
     expect(os.unload).toHaveBeenCalled();
     expect(engine._layerHowl('tavern-explore')).toBeNull();
-  });
-});
-
-/** Howl finto che espone duration() ed eventi (per testare il crossfade di loop). */
-function makeLoopHowl(duration = 100) {
-  const created = [];
-  const factory = (opts) => {
-    const listeners = {};
-    const howl = {
-      opts,
-      _vol: opts.volume ?? 1,
-      play: vi.fn(),
-      stop: vi.fn(),
-      pause: vi.fn(),
-      unload: vi.fn(),
-      fade: vi.fn(function (from, to) { this._fadeTo = to; return this; }),
-      duration: vi.fn(() => duration),
-      once: vi.fn(function (ev, cb) { (listeners[ev] = listeners[ev] || []).push(cb); return this; }),
-      emit(ev) { (listeners[ev] || []).forEach((cb) => cb()); listeners[ev] = []; },
-      volume: vi.fn(function (v) { if (v === undefined) return this._vol; this._vol = v; return this; })
-    };
-    created.push(howl);
-    return howl;
-  };
-  return { factory, created };
-}
-
-describe('AudioEngine crossfade di loop musicale', () => {
-  let fake, engine;
-  beforeEach(() => {
-    vi.useFakeTimers();
-    fake = makeLoopHowl(100); // traccia da 100s
-    engine = new AudioEngine({ howlFactory: fake.factory });
-    engine.loadScene(demoScene);
-  });
-  afterEach(() => vi.useRealTimers());
-
-  it('musica creata con loop nativo OFF (loop gestito a mano)', () => {
-    expect(engine._layerHowl('tavern-explore').opts.loop).toBe(false);
-  });
-
-  it('vicino alla fine crea una seconda istanza e fa il crossfade coda->testa', () => {
-    engine.play();
-    const music1 = engine._layerHowl('tavern-explore');
-    const before = fake.created.length;
-    // lead = min(4, 100/3)=4s -> il crossfade parte a (100-4)=96s
-    vi.advanceTimersByTime(96 * 1000);
-    const music2 = engine._layerHowl('tavern-explore');
-    expect(fake.created.length).toBe(before + 1); // creata la 2ª istanza
-    expect(music2).not.toBe(music1);
-    expect(music2.play).toHaveBeenCalled();
-    expect(music1.fade).toHaveBeenCalled(); // vecchia sfuma a 0
-    expect(music2.fade).toHaveBeenCalled(); // nuova sale
-    // a fade concluso la vecchia viene fermata e scaricata
-    music1.emit('fade');
-    expect(music1.stop).toHaveBeenCalled();
-    expect(music1.unload).toHaveBeenCalled();
-  });
-
-  it('pause() durante il crossfade ferma anche l istanza in uscita', () => {
-    engine.play();
-    const music1 = engine._layerHowl('tavern-explore');
-    vi.advanceTimersByTime(96 * 1000); // avvia il crossfade (music1 in uscita)
-    engine.pause();
-    expect(music1.stop).toHaveBeenCalled(); // _loopFrom fermata dal teardown
-  });
-
-  it('stop() annulla il timer di loop (nessun crossfade successivo)', () => {
-    engine.play();
-    const before = fake.created.length;
-    engine.stop();
-    vi.advanceTimersByTime(200 * 1000);
-    expect(fake.created.length).toBe(before); // nessuna nuova istanza creata
-  });
-
-  it('setIntensity annulla il loop della traccia uscente', () => {
-    engine.play();
-    engine.setIntensity('combat');
-    const before = fake.created.length;
-    vi.advanceTimersByTime(96 * 1000); // un solo giro
-    // il timer della explore uscente è stato annullato: a 96s scatta SOLO il
-    // crossfade della combat -> esattamente 1 nuova istanza (nessun orfano).
-    expect(fake.created.length).toBe(before + 1);
   });
 });

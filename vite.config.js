@@ -18,7 +18,7 @@ export default defineConfig({
             urlPattern: ({ url }) => url.pathname.includes('/audio/'),
             handler: 'CacheFirst',
             options: {
-              cacheName: 'bardo-audio-v9', // bump: refetch (v9: tracce lunghe 120s + crossfade loop nel codice; mountains/cave/ritual rifatte)
+              cacheName: 'bardo-audio-v10', // bump: refetch (v10: loop nativo per background + crossfade coda-testa bakato nel file)
               rangeRequests: true,
               cacheableResponse: { statuses: [0, 200, 206] },
               expiration: { maxEntries: 300, maxAgeSeconds: 60 * 60 * 24 * 60 }
